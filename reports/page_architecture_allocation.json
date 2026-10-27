@@ -1,0 +1,422 @@
+{
+  "/iptv-usa": {
+    "count": 361,
+    "total_sv": 149660,
+    "sample_keywords": [
+      {
+        "keyword": "iptv",
+        "sv": 74000,
+        "kd": 63.0,
+        "cluster": "General / Informational"
+      },
+      {
+        "keyword": "ip tv",
+        "sv": 8100,
+        "kd": 66.0,
+        "cluster": "General / Informational"
+      },
+      {
+        "keyword": "iptv usa",
+        "sv": 2900,
+        "kd": 25.0,
+        "cluster": "USA Regional Service"
+      },
+      {
+        "keyword": "iptv suppliers",
+        "sv": 1900,
+        "kd": 21.0,
+        "cluster": "General / Informational"
+      },
+      {
+        "keyword": "iptv tv",
+        "sv": 1600,
+        "kd": 75.0,
+        "cluster": "General / Informational"
+      },
+      {
+        "keyword": "iptvgreat",
+        "sv": 1300,
+        "kd": 18.0,
+        "cluster": "General / Informational"
+      },
+      {
+        "keyword": "4k iptv usa",
+        "sv": 1300,
+        "kd": 45.0,
+        "cluster": "USA Regional Service"
+      },
+      {
+        "keyword": "bestusaiptv",
+        "sv": 1000,
+        "kd": 27.0,
+        "cluster": "USA Regional Service"
+      },
+      {
+        "keyword": "ip-tv provider",
+        "sv": 880,
+        "kd": 28.0,
+        "cluster": "General / Informational"
+      },
+      {
+        "keyword": "iptv in usa",
+        "sv": 880,
+        "kd": 39.0,
+        "cluster": "USA Regional Service"
+      }
+    ]
+  },
+  "/": {
+    "count": 63,
+    "total_sv": 43300,
+    "sample_keywords": [
+      {
+        "keyword": "iptv service",
+        "sv": 9900,
+        "kd": 24.0,
+        "cluster": "Core Service & Provider"
+      },
+      {
+        "keyword": "iptv services",
+        "sv": 5400,
+        "kd": 19.0,
+        "cluster": "Core Service & Provider"
+      },
+      {
+        "keyword": "iptv provider",
+        "sv": 5400,
+        "kd": 28.0,
+        "cluster": "Core Service & Provider"
+      },
+      {
+        "keyword": "miptv4k. com",
+        "sv": 4400,
+        "kd": 3.0,
+        "cluster": "Features & Content Compatibility"
+      },
+      {
+        "keyword": "iptv service providers",
+        "sv": 2400,
+        "kd": 16.0,
+        "cluster": "Core Service & Provider"
+      },
+      {
+        "keyword": "iptv service provider",
+        "sv": 2400,
+        "kd": 28.0,
+        "cluster": "Core Service & Provider"
+      },
+      {
+        "keyword": "best iptv provider",
+        "sv": 1900,
+        "kd": 15.0,
+        "cluster": "Core Service & Provider"
+      },
+      {
+        "keyword": "iptv streaming",
+        "sv": 1600,
+        "kd": 53.0,
+        "cluster": "Features & Content Compatibility"
+      },
+      {
+        "keyword": "iptv 4k",
+        "sv": 1300,
+        "kd": 24.0,
+        "cluster": "Features & Content Compatibility"
+      },
+      {
+        "keyword": "iptv streaming service",
+        "sv": 1000,
+        "kd": 36.0,
+        "cluster": "Features & Content Compatibility"
+      }
+    ]
+  },
+  "/plans": {
+    "count": 111,
+    "total_sv": 27350,
+    "sample_keywords": [
+      {
+        "keyword": "iptv subscription",
+        "sv": 6600,
+        "kd": 36.0,
+        "cluster": "Plans & Subscription"
+      },
+      {
+        "keyword": "subscribe-iptv",
+        "sv": 1900,
+        "kd": 28.0,
+        "cluster": "Plans & Subscription"
+      },
+      {
+        "keyword": "iptv subscribe",
+        "sv": 1600,
+        "kd": 15.0,
+        "cluster": "Plans & Subscription"
+      },
+      {
+        "keyword": "subscribeip tv",
+        "sv": 1000,
+        "kd": 18.0,
+        "cluster": "Plans & Subscription"
+      },
+      {
+        "keyword": "subscribe iptv",
+        "sv": 1000,
+        "kd": 18.0,
+        "cluster": "Plans & Subscription"
+      },
+      {
+        "keyword": "ip tv subscription",
+        "sv": 880,
+        "kd": 28.0,
+        "cluster": "Plans & Subscription"
+      },
+      {
+        "keyword": "iptv subscription service",
+        "sv": 720,
+        "kd": 28.0,
+        "cluster": "Plans & Subscription"
+      },
+      {
+        "keyword": "iptv subscriptions",
+        "sv": 720,
+        "kd": 17.0,
+        "cluster": "Plans & Subscription"
+      },
+      {
+        "keyword": "premium iptv subscription",
+        "sv": 590,
+        "kd": 11.0,
+        "cluster": "Plans & Subscription"
+      },
+      {
+        "keyword": "iptv subscription usa",
+        "sv": 590,
+        "kd": 20.0,
+        "cluster": "Plans & Subscription (USA)"
+      }
+    ]
+  },
+  "N/A (Exclude / Do Not Target)": {
+    "count": 35,
+    "total_sv": 7640,
+    "sample_keywords": [
+      {
+        "keyword": "iptvusax",
+        "sv": 1300,
+        "kd": 8.0,
+        "cluster": "Competitor Brands & Irrelevant"
+      },
+      {
+        "keyword": "great iptv",
+        "sv": 1000,
+        "kd": 0.0,
+        "cluster": "Competitor Brands & Irrelevant"
+      },
+      {
+        "keyword": "iptv reseller",
+        "sv": 880,
+        "kd": 6.0,
+        "cluster": "Competitor Brands & Irrelevant"
+      },
+      {
+        "keyword": "greatiptv",
+        "sv": 720,
+        "kd": 27.0,
+        "cluster": "Competitor Brands & Irrelevant"
+      },
+      {
+        "keyword": "iptvusa",
+        "sv": 720,
+        "kd": 5.0,
+        "cluster": "Competitor Brands & Irrelevant"
+      },
+      {
+        "keyword": "iptv reseller panel",
+        "sv": 390,
+        "kd": 14.0,
+        "cluster": "Competitor Brands & Irrelevant"
+      },
+      {
+        "keyword": "prime iptv",
+        "sv": 210,
+        "kd": 23.0,
+        "cluster": "Competitor Brands & Irrelevant"
+      },
+      {
+        "keyword": "iptv resellers",
+        "sv": 210,
+        "kd": 5.0,
+        "cluster": "Competitor Brands & Irrelevant"
+      },
+      {
+        "keyword": "iptvus",
+        "sv": 210,
+        "kd": 20.0,
+        "cluster": "Competitor Brands & Irrelevant"
+      },
+      {
+        "keyword": "reseller iptv panel",
+        "sv": 170,
+        "kd": 32.0,
+        "cluster": "Competitor Brands & Irrelevant"
+      }
+    ]
+  },
+  "/setup/smart-tv": {
+    "count": 15,
+    "total_sv": 1970,
+    "sample_keywords": [
+      {
+        "keyword": "iptv smarters on samsung tv",
+        "sv": 880,
+        "kd": 39.0,
+        "cluster": "Device Setup - Smart TV"
+      },
+      {
+        "keyword": "smart tv pro",
+        "sv": 210,
+        "kd": 35.0,
+        "cluster": "Device Setup - Smart TV"
+      },
+      {
+        "keyword": "ip tv smart tv",
+        "sv": 140,
+        "kd": 35.0,
+        "cluster": "Device Setup - Smart TV"
+      },
+      {
+        "keyword": "samsung iptv application",
+        "sv": 90,
+        "kd": 30.0,
+        "cluster": "Device Setup - Smart TV"
+      },
+      {
+        "keyword": "iptv smarters pro samsung tv",
+        "sv": 90,
+        "kd": 33.0,
+        "cluster": "Device Setup - Smart TV"
+      },
+      {
+        "keyword": "samsung iptv app",
+        "sv": 90,
+        "kd": 35.0,
+        "cluster": "Device Setup - Smart TV"
+      },
+      {
+        "keyword": "iptv smarters per samsung tv",
+        "sv": 70,
+        "kd": 33.0,
+        "cluster": "Device Setup - Smart TV"
+      },
+      {
+        "keyword": "iptv smart pro samsung",
+        "sv": 70,
+        "kd": 39.0,
+        "cluster": "Device Setup - Smart TV"
+      },
+      {
+        "keyword": "iptv smarters for samsung smart tv",
+        "sv": 70,
+        "kd": 36.0,
+        "cluster": "Device Setup - Smart TV"
+      },
+      {
+        "keyword": "iptv smarters pro for samsung tv",
+        "sv": 50,
+        "kd": 32.0,
+        "cluster": "Device Setup - Smart TV"
+      }
+    ]
+  },
+  "/devices": {
+    "count": 17,
+    "total_sv": 2020,
+    "sample_keywords": [
+      {
+        "keyword": "playlist for iptv",
+        "sv": 260,
+        "kd": 28.0,
+        "cluster": "App & Player Support"
+      },
+      {
+        "keyword": "kodi iptv player",
+        "sv": 260,
+        "kd": 27.0,
+        "cluster": "App & Player Support"
+      },
+      {
+        "keyword": "iptv kodi player",
+        "sv": 210,
+        "kd": 36.0,
+        "cluster": "App & Player Support"
+      },
+      {
+        "keyword": "m3u iptv usa",
+        "sv": 170,
+        "kd": 20.0,
+        "cluster": "App & Player Support"
+      },
+      {
+        "keyword": "iptv smarters subscription",
+        "sv": 170,
+        "kd": 15.0,
+        "cluster": "App & Player Support"
+      },
+      {
+        "keyword": "iptv app roku",
+        "sv": 140,
+        "kd": 35.0,
+        "cluster": "App & Player Support"
+      },
+      {
+        "keyword": "m3u playlist player roku",
+        "sv": 140,
+        "kd": 16.0,
+        "cluster": "App & Player Support"
+      },
+      {
+        "keyword": "iptv player kodi",
+        "sv": 110,
+        "kd": 21.0,
+        "cluster": "App & Player Support"
+      },
+      {
+        "keyword": "iptv smarters pro subscription price",
+        "sv": 110,
+        "kd": 10.0,
+        "cluster": "App & Player Support"
+      },
+      {
+        "keyword": "how to install iptv",
+        "sv": 70,
+        "kd": 46.0,
+        "cluster": "Device Setup - General"
+      }
+    ]
+  },
+  "/faq": {
+    "count": 1,
+    "total_sv": 90,
+    "sample_keywords": [
+      {
+        "keyword": "legit iptv services",
+        "sv": 90,
+        "kd": 18.0,
+        "cluster": "Core Service & Provider"
+      }
+    ]
+  },
+  "/setup/firestick": {
+    "count": 1,
+    "total_sv": 40,
+    "sample_keywords": [
+      {
+        "keyword": "iptv search function firestick",
+        "sv": 40,
+        "kd": 22.0,
+        "cluster": "Device Setup - Firestick"
+      }
+    ]
+  }
+}

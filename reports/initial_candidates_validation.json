@@ -1,0 +1,141 @@
+{
+  "iptv service": {
+    "found": true,
+    "search_volume": 9900,
+    "kd": 24.0,
+    "cpc": 1.69,
+    "intents": [],
+    "competitors": [
+      "iptvprimeus.us"
+    ],
+    "best_pos": 1,
+    "best_url": "https://iptvprimeus.us/"
+  },
+  "iptv services": {
+    "found": true,
+    "search_volume": 5400,
+    "kd": 19.0,
+    "cpc": 1.69,
+    "intents": [],
+    "competitors": [
+      "360iptv.com",
+      "greatiptv.tv"
+    ],
+    "best_pos": 2,
+    "best_url": "https://360iptv.com/"
+  },
+  "iptv subscription": {
+    "found": true,
+    "search_volume": 6600,
+    "kd": 36.0,
+    "cpc": 0.0,
+    "intents": [
+      "informational",
+      "commercial"
+    ],
+    "competitors": [
+      "iptvsmartersapp.us",
+      "iptvsubscription.us",
+      "iptvprimeus.us",
+      "usiptvprovider.com",
+      "pillariptv.com",
+      "smartvpro.com"
+    ],
+    "best_pos": 1,
+    "best_url": "https://iptvsubscription.us/"
+  },
+  "iptv provider": {
+    "found": true,
+    "search_volume": 5400,
+    "kd": 28.0,
+    "cpc": 1.22,
+    "intents": [],
+    "competitors": [
+      "360iptv.com",
+      "iptvprimeus.us",
+      "smartvpro.com"
+    ],
+    "best_pos": 2,
+    "best_url": "https://iptvprimeus.us/"
+  },
+  "iptv usa": {
+    "found": true,
+    "search_volume": 2900,
+    "kd": 25.0,
+    "cpc": 1.65,
+    "intents": [
+      "commercial"
+    ],
+    "competitors": [
+      "iptvus.tv",
+      "360iptv.com",
+      "smartvpro.com",
+      "pillariptv.com"
+    ],
+    "best_pos": 1,
+    "best_url": "https://pillariptv.com/"
+  },
+  "iptv service provider": {
+    "found": true,
+    "search_volume": 2400,
+    "kd": 28.0,
+    "cpc": 0.0,
+    "intents": [
+      "commercial"
+    ],
+    "competitors": [
+      "iptvprimeus.us",
+      "smartvpro.com"
+    ],
+    "best_pos": 3,
+    "best_url": "https://iptvprimeus.us/"
+  },
+  "iptv service providers": {
+    "found": true,
+    "search_volume": 2400,
+    "kd": 16.0,
+    "cpc": 0.0,
+    "intents": [
+      "commercial"
+    ],
+    "competitors": [
+      "360iptv.com"
+    ],
+    "best_pos": 7,
+    "best_url": "https://360iptv.com/"
+  },
+  "iptv plans usa": {
+    "found": true,
+    "search_volume": 40,
+    "kd": 8.0,
+    "cpc": 0.0,
+    "intents": [
+      "commercial"
+    ],
+    "competitors": [
+      "usiptvprovider.com",
+      "pillariptv.com",
+      "iptvus.tv",
+      "smartvpro.com",
+      "360iptv.com"
+    ],
+    "best_pos": 2,
+    "best_url": "https://360iptv.com/"
+  },
+  "iptv subscribe": {
+    "found": true,
+    "search_volume": 1600,
+    "kd": 15.0,
+    "cpc": 0.0,
+    "intents": [
+      "informational"
+    ],
+    "competitors": [
+      "pillariptv.com",
+      "360iptv.com",
+      "iptvsubscription.us"
+    ],
+    "best_pos": 1,
+    "best_url": "https://iptvsubscription.us/"
+  }
+}
