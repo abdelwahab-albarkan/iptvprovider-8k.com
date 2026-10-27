@@ -1,7 +1,8 @@
 import React from "react";
 import Link from "next/link";
 import type { Metadata } from "next";
-import Breadcrumbs from "@/components/Breadcrumbs";
+import PageHero from "@/components/PageHero";
+import CtaBand from "@/components/CtaBand";
 import FaqAccordion from "@/components/FaqAccordion";
 
 export const metadata: Metadata = {
@@ -86,143 +87,102 @@ export default function FaqPage() {
   ];
 
   return (
-    <div className="section" style={{ paddingTop: "2.5rem" }}>
-      <div className="container">
-        <Breadcrumbs items={[{ label: "Frequently Asked Questions" }]} />
-
-        {/* Hero Section */}
-        <div style={{ maxWidth: "860px", marginBottom: "3.5rem" }}>
-          <div style={{ display: "inline-flex", alignItems: "center", gap: "0.5rem", marginBottom: "1rem" }}>
-            <span className="badge badge-orange">Knowledgebase & Help Hub</span>
+    <>
+      <PageHero
+        crumbs={[{ label: "Frequently Asked Questions" }]}
+        badges={
+          <>
+            <span className="badge badge-orange">Knowledgebase &amp; Help Hub</span>
             <span className="badge badge-emerald">Verified Answers</span>
-          </div>
-
-          <h1>
+          </>
+        }
+        title={
+          <>
             Frequently Asked <span className="text-gradient">Questions</span>
-          </h1>
+          </>
+        }
+        lead="Find transparent, technically accurate answers about IPTV protocols, device compatibility, network requirements, and account management."
+      />
 
-          <p style={{ fontSize: "1.15rem", color: "var(--text-secondary)", lineHeight: "1.7" }}>
-            Find transparent, technically accurate answers about IPTV protocols, device compatibility, network requirements, and account management.
-          </p>
-        </div>
-
-        {/* Categories */}
-        <div style={{ maxWidth: "840px", margin: "0 auto", display: "flex", flexDirection: "column", gap: "3.5rem" }}>
+      {/* Categories */}
+      <section className="section">
+        <div className="container container-narrow stack-lg">
           {/* General & Legal */}
           <section>
-            <div style={{ display: "flex", alignItems: "center", gap: "0.75rem", marginBottom: "1.5rem" }}>
-              <div style={{
-                width: "40px",
-                height: "40px",
-                borderRadius: "10px",
-                background: "var(--bg-orange-soft)",
-                display: "flex",
-                alignItems: "center",
-                justifyContent: "center",
-                color: "var(--accent-orange-dark)"
-              }}>
-                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+            <div className="heading-icon">
+              <span className="icon-box">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" aria-hidden="true">
                   <circle cx="12" cy="12" r="10" />
                   <line x1="12" y1="16" x2="12" y2="12" />
                   <line x1="12" y1="8" x2="12.01" y2="8" />
                 </svg>
-              </div>
-              <h2 style={{ fontSize: "1.5rem", color: "var(--text-primary)" }}>General & Technology</h2>
+              </span>
+              <h2>General &amp; Technology</h2>
             </div>
             <FaqAccordion items={generalFaqs} withSchema={true} />
           </section>
 
           {/* Network & Performance */}
           <section>
-            <div style={{ display: "flex", alignItems: "center", gap: "0.75rem", marginBottom: "1.5rem" }}>
-              <div style={{
-                width: "40px",
-                height: "40px",
-                borderRadius: "10px",
-                background: "rgba(16, 185, 129, 0.15)",
-                display: "flex",
-                alignItems: "center",
-                justifyContent: "center",
-                color: "var(--accent-emerald)"
-              }}>
-                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+            <div className="heading-icon">
+              <span className="icon-box success">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" aria-hidden="true">
                   <path d="M5 12.55a11 11 0 0 1 14.08 0" />
                   <path d="M1.42 9a16 16 0 0 1 21.16 0" />
                   <path d="M8.53 16.11a6 6 0 0 1 6.95 0" />
                   <line x1="12" y1="20" x2="12.01" y2="20" />
                 </svg>
-              </div>
-              <h2 style={{ fontSize: "1.5rem", color: "var(--text-primary)" }}>Bandwidth & Network Performance</h2>
+              </span>
+              <h2>Bandwidth &amp; Network Performance</h2>
             </div>
             <FaqAccordion items={networkFaqs} withSchema={true} />
           </section>
 
           {/* Devices & Players */}
           <section>
-            <div style={{ display: "flex", alignItems: "center", gap: "0.75rem", marginBottom: "1.5rem" }}>
-              <div style={{
-                width: "40px",
-                height: "40px",
-                borderRadius: "10px",
-                background: "var(--bg-orange-soft)",
-                display: "flex",
-                alignItems: "center",
-                justifyContent: "center",
-                color: "var(--accent-orange-dark)"
-              }}>
-                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+            <div className="heading-icon">
+              <span className="icon-box">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" aria-hidden="true">
                   <rect x="2" y="7" width="20" height="15" rx="2" ry="2" />
                   <polyline points="17 2 12 7 7 2" />
                 </svg>
-              </div>
-              <h2 style={{ fontSize: "1.5rem", color: "var(--text-primary)" }}>Devices & Setup Applications</h2>
+              </span>
+              <h2>Devices &amp; Setup Applications</h2>
             </div>
             <FaqAccordion items={deviceFaqs} withSchema={true} />
           </section>
 
           {/* Billing & Plans */}
           <section>
-            <div style={{ display: "flex", alignItems: "center", gap: "0.75rem", marginBottom: "1.5rem" }}>
-              <div style={{
-                width: "40px",
-                height: "40px",
-                borderRadius: "10px",
-                background: "var(--bg-orange-soft)",
-                display: "flex",
-                alignItems: "center",
-                justifyContent: "center",
-                color: "var(--accent-orange-dark)"
-              }}>
-                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+            <div className="heading-icon">
+              <span className="icon-box">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" aria-hidden="true">
                   <rect x="1" y="4" width="22" height="16" rx="2" ry="2" />
                   <line x1="1" y1="10" x2="23" y2="10" />
                 </svg>
-              </div>
-              <h2 style={{ fontSize: "1.5rem", color: "var(--text-primary)" }}>Billing, Ordering & Refunds</h2>
+              </span>
+              <h2>Billing, Ordering &amp; Refunds</h2>
             </div>
             <FaqAccordion items={billingFaqs} withSchema={true} />
           </section>
         </div>
+      </section>
 
-        {/* Contact Support Prompt */}
-        <div style={{ marginTop: "4.5rem", textAlign: "center", padding: "3rem 1.5rem", background: "var(--bg-orange-soft)", borderRadius: "16px", border: "1px solid var(--border-highlight)" }}>
-          <h2 style={{ fontSize: "1.85rem", marginBottom: "0.75rem" }}>Still Have Unanswered Questions?</h2>
-          <p style={{ maxWidth: "600px", margin: "0 auto 1.75rem auto", color: "var(--text-secondary)" }}>
-            Our customer service and technical support specialists are available via WhatsApp, phone, and email to answer your inquiries.
-          </p>
-          <div style={{ display: "flex", justifyContent: "center", gap: "1rem", flexWrap: "wrap" }}>
-            <Link href="/contact" className="btn btn-primary">
-              Submit a Support Ticket
-            </Link>
-            <a href="https://wa.me/212625218443" target="_blank" rel="noopener noreferrer" className="btn btn-whatsapp">
-              WhatsApp (+212625218443)
-            </a>
-            <a href="mailto:support@streamb4.com" className="btn btn-secondary">
-              Email: support@streamb4.com
-            </a>
-          </div>
-        </div>
-      </div>
-    </div>
+      {/* Contact Support Prompt */}
+      <CtaBand
+        title="Still Have Unanswered Questions?"
+        text="Our customer service and technical support specialists are available via WhatsApp, phone, and email to answer your inquiries."
+      >
+        <Link href="/contact" className="btn btn-primary">
+          Submit a Support Ticket
+        </Link>
+        <a href="https://wa.me/212625218443" target="_blank" rel="noopener noreferrer" className="btn btn-whatsapp">
+          WhatsApp (+212625218443)
+        </a>
+        <a href="mailto:support@streamb4.com" className="btn btn-ghost">
+          Email: support@streamb4.com
+        </a>
+      </CtaBand>
+    </>
   );
 }

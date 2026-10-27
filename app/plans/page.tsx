@@ -1,7 +1,8 @@
 import React from "react";
 import Link from "next/link";
 import type { Metadata } from "next";
-import Breadcrumbs from "@/components/Breadcrumbs";
+import PageHero from "@/components/PageHero";
+import CtaBand from "@/components/CtaBand";
 import FaqAccordion from "@/components/FaqAccordion";
 import PricingSection from "@/components/PricingSection";
 
@@ -38,135 +39,105 @@ export default function PlansPage() {
   ];
 
   return (
-    <div className="section" style={{ paddingTop: "2.5rem" }}>
-      <div className="container">
-        <Breadcrumbs items={[{ label: "Subscription Plans" }]} />
-
-        {/* Page Header */}
-        <div style={{ maxWidth: "840px", marginBottom: "3rem" }}>
-          <div style={{ display: "inline-flex", alignItems: "center", gap: "0.5rem", marginBottom: "1rem" }}>
+    <>
+      <PageHero
+        crumbs={[{ label: "Subscription Plans" }]}
+        badges={
+          <>
             <span className="badge badge-orange">Transparent Subscription Tiers</span>
             <span className="badge badge-emerald">Verified USD Pricing • 1 to 4 Accounts</span>
-          </div>
-
-          <h1>
+          </>
+        }
+        title={
+          <>
             Flexible <span className="text-gradient">IPTV Subscription</span> Plans
-          </h1>
+          </>
+        }
+        lead="Choose the term and connection capacity that matches your household viewing needs. Every tier includes access to high-bitrate 8K and 4K streaming infrastructure, full US Electronic Program Guide (EPG), and dedicated technical assistance."
+      />
 
-          <p style={{ fontSize: "1.15rem", color: "var(--text-secondary)", lineHeight: "1.7" }}>
-            Choose the term and connection capacity that matches your household viewing needs. Every tier includes access to high-bitrate 8K and 4K streaming infrastructure, full US Electronic Program Guide (EPG), and dedicated technical assistance.
-          </p>
+      {/* Pricing Component with all 12 Verified Prices */}
+      <section className="section">
+        <div className="container">
+          <PricingSection />
         </div>
+      </section>
 
-        {/* Pricing Component with all 12 Verified Prices */}
-        <PricingSection />
-
-        {/* Feature Comparison Table */}
-        <div style={{ marginBottom: "4.5rem" }}>
+      {/* Feature Comparison Table */}
+      <section className="section section-alt">
+        <div className="container">
           <div className="section-header">
             <span className="section-tag">Specifications</span>
-            <h2>Plan Feature & Protocol Comparison</h2>
+            <h2>Plan Feature &amp; Protocol Comparison</h2>
             <p>Every tier shares our high-performance transmission infrastructure with zero speed caps.</p>
           </div>
 
-          <div className="table-responsive">
+          <div className="table-responsive table-stack">
             <table className="styled-table" aria-label="IPTV Subscription Plan Comparison">
               <thead>
                 <tr>
                   <th scope="col">Feature Specification</th>
                   <th scope="col">3 Months</th>
-                  <th scope="col">6 Months</th>
+                  <th scope="col" className="col-highlight">6 Months</th>
                   <th scope="col">12 Months</th>
                 </tr>
               </thead>
               <tbody>
-                <tr>
-                  <td>8K Ready & 4K UHD Streaming</td>
-                  <td>Included</td>
-                  <td>Included</td>
-                  <td>Included</td>
-                </tr>
-                <tr>
-                  <td>Simultaneous Account Options</td>
-                  <td>1, 2, 3, or 4 Accounts</td>
-                  <td>1, 2, 3, or 4 Accounts</td>
-                  <td>1, 2, 3, or 4 Accounts</td>
-                </tr>
-                <tr>
-                  <td>60 FPS Live Streams</td>
-                  <td>Included</td>
-                  <td>Included</td>
-                  <td>Included</td>
-                </tr>
-                <tr>
-                  <td>US Edge CDN Nodes</td>
-                  <td>Standard Peering</td>
-                  <td>Priority Routing</td>
-                  <td>VIP Dedicated</td>
-                </tr>
-                <tr>
-                  <td>Supported Protocols</td>
-                  <td>M3U8 / Xtream Codes API</td>
-                  <td>M3U8 / Xtream Codes API</td>
-                  <td>M3U8 / Xtream Codes API</td>
-                </tr>
-                <tr>
-                  <td>Electronic Program Guide (EPG)</td>
-                  <td>Included</td>
-                  <td>Included</td>
-                  <td>Included</td>
-                </tr>
-                <tr>
-                  <td>Fire TV, Smart TV, Android Apps</td>
-                  <td>Compatible</td>
-                  <td>Compatible</td>
-                  <td>Compatible</td>
-                </tr>
-                <tr>
-                  <td>Support Channel</td>
-                  <td>Standard Ticket</td>
-                  <td>Priority Ticket</td>
-                  <td>Dedicated Specialist</td>
-                </tr>
+                {[
+                  ["8K Ready & 4K UHD Streaming", "Included", "Included", "Included"],
+                  ["Simultaneous Account Options", "1, 2, 3, or 4 Accounts", "1, 2, 3, or 4 Accounts", "1, 2, 3, or 4 Accounts"],
+                  ["60 FPS Live Streams", "Included", "Included", "Included"],
+                  ["US Edge CDN Nodes", "Standard Peering", "Priority Routing", "VIP Dedicated"],
+                  ["Supported Protocols", "M3U8 / Xtream Codes API", "M3U8 / Xtream Codes API", "M3U8 / Xtream Codes API"],
+                  ["Electronic Program Guide (EPG)", "Included", "Included", "Included"],
+                  ["Fire TV, Smart TV, Android Apps", "Compatible", "Compatible", "Compatible"],
+                  ["Support Channel", "Standard Ticket", "Priority Ticket", "Dedicated Specialist"]
+                ].map(([feature, a, b, c]) => (
+                  <tr key={feature}>
+                    <td>{feature}</td>
+                    <td data-label="3 Months">{a}</td>
+                    <td data-label="6 Months" className="col-highlight">{b}</td>
+                    <td data-label="12 Months">{c}</td>
+                  </tr>
+                ))}
                 <tr>
                   <td>Price Starting Point (1 Account)</td>
-                  <td><strong>$39.99</strong></td>
-                  <td><strong>$56.99</strong></td>
-                  <td><strong>$79.99</strong></td>
+                  <td data-label="3 Months"><strong className="price-cell">$39.99</strong></td>
+                  <td data-label="6 Months" className="col-highlight"><strong className="price-cell brand">$56.99</strong></td>
+                  <td data-label="12 Months"><strong className="price-cell">$79.99</strong></td>
                 </tr>
               </tbody>
             </table>
           </div>
         </div>
+      </section>
 
-        {/* FAQ Section */}
-        <div style={{ maxWidth: "800px", margin: "0 auto 4rem auto" }}>
+      {/* FAQ Section */}
+      <section className="section">
+        <div className="container container-narrow">
           <div className="section-header">
             <span className="section-tag">Plan Guidance</span>
-            <h2>Billing & Subscription Questions</h2>
+            <h2>Billing &amp; Subscription Questions</h2>
           </div>
           <FaqAccordion items={plansFaqs} withSchema={true} />
         </div>
+      </section>
 
-        {/* Device Integration Reminder */}
-        <div className="card" style={{ textAlign: "center", padding: "2.5rem 1.5rem" }}>
-          <h3>Need Help Setting Up Your Device?</h3>
-          <p style={{ maxWidth: "600px", margin: "0.5rem auto 1.5rem auto", color: "var(--text-secondary)" }}>
-            Our setup guides provide step-by-step instructions for Amazon Firestick, Samsung & LG Smart TVs, and Android TV devices.
-          </p>
-          <div style={{ display: "flex", justifyContent: "center", gap: "1rem", flexWrap: "wrap" }}>
-            <Link href="/devices" className="btn btn-secondary btn-sm">
-              Explore Device Compatibility
-            </Link>
-            <Link href="/setup/firestick" className="btn btn-primary btn-sm">
-              Firestick Setup Guide
-            </Link>
-            <a href="https://wa.me/212625218443" target="_blank" rel="noopener noreferrer" className="btn btn-whatsapp btn-sm">
-              WhatsApp (+212625218443)
-            </a>
-          </div>
-        </div>
-      </div>
-    </div>
+      {/* Device Integration Reminder */}
+      <CtaBand
+        title="Need Help Setting Up Your Device?"
+        text="Our setup guides provide step-by-step instructions for Amazon Firestick, Samsung & LG Smart TVs, and Android TV devices."
+      >
+        <Link href="/devices" className="btn btn-ghost">
+          Explore Device Compatibility
+        </Link>
+        <Link href="/setup/firestick" className="btn btn-primary">
+          Firestick Setup Guide
+        </Link>
+        <a href="https://wa.me/212625218443" target="_blank" rel="noopener noreferrer" className="btn btn-whatsapp">
+          WhatsApp (+212625218443)
+        </a>
+      </CtaBand>
+    </>
   );
 }

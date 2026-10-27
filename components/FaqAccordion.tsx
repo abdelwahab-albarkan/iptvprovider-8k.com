@@ -39,82 +39,39 @@ export default function FaqAccordion({ items, withSchema = false }: FaqAccordion
   return (
     <>
       {faqSchema && <SchemaJsonLd data={faqSchema} />}
-      <div style={{ display: "flex", flexDirection: "column", gap: "1rem" }}>
+      <div className="faq-list">
         {items.map((item, index) => {
           const isOpen = openIndex === index;
           return (
-            <div
-              key={item.id}
-              className="card"
-              style={{
-                padding: "0",
-                borderColor: isOpen ? "var(--border-highlight)" : "var(--border-subtle)",
-                background: isOpen ? "var(--bg-orange-soft)" : "var(--bg-card)",
-                transition: "all 0.25s ease"
-              }}
-            >
-              <button
-                type="button"
-                id={`faq-btn-${item.id}`}
-                aria-expanded={isOpen}
-                aria-controls={`faq-panel-${item.id}`}
-                onClick={() => toggle(index)}
-                style={{
-                  width: "100%",
-                  textAlign: "left",
-                  padding: "1.25rem 1.75rem",
-                  background: "transparent",
-                  border: "none",
-                  cursor: "pointer",
-                  display: "flex",
-                  alignItems: "center",
-                  justifyContent: "space-between",
-                  gap: "1rem",
-                  color: isOpen ? "var(--accent-orange-dark)" : "var(--text-primary)",
-                  fontWeight: "700",
-                  fontSize: "1.05rem"
-                }}
-              >
-                <span>{item.question}</span>
-                <span
-                  style={{
-                    display: "inline-flex",
-                    alignItems: "center",
-                    justifyContent: "center",
-                    width: "30px",
-                    height: "30px",
-                    borderRadius: "50%",
-                    background: isOpen ? "var(--accent-orange)" : "var(--bg-secondary)",
-                    color: isOpen ? "#ffffff" : "var(--text-muted)",
-                    transform: isOpen ? "rotate(180deg)" : "rotate(0deg)",
-                    transition: "all 0.25s ease",
-                    flexShrink: 0
-                  }}
-                  aria-hidden="true"
+            <div key={item.id} className={`faq-item${isOpen ? " is-open" : ""}`}>
+              <h3 className="faq-heading">
+                <button
+                  type="button"
+                  id={`faq-btn-${item.id}`}
+                  className="faq-trigger"
+                  aria-expanded={isOpen}
+                  aria-controls={`faq-panel-${item.id}`}
+                  onClick={() => toggle(index)}
                 >
-                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
-                    <polyline points="6 9 12 15 18 9" />
-                  </svg>
-                </span>
-              </button>
+                  <span>{item.question}</span>
+                  <span className="faq-icon" aria-hidden="true">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+                      <polyline points="6 9 12 15 18 9" />
+                    </svg>
+                  </span>
+                </button>
+              </h3>
 
-              {isOpen && (
-                <div
-                  id={`faq-panel-${item.id}`}
-                  role="region"
-                  aria-labelledby={`faq-btn-${item.id}`}
-                  style={{
-                    padding: "0 1.75rem 1.5rem 1.75rem",
-                    borderTop: "1px solid rgba(249, 115, 22, 0.15)",
-                    marginTop: "-0.25rem",
-                    paddingTop: "1rem"
-                  }}
-                >
-                  <p style={{ fontSize: "0.975rem", color: "var(--text-secondary)", lineHeight: "1.7" }}>
-                    {item.answer}
-                  </p>
-                </div>
-              )}
+              {/* Answer stays in the DOM for crawlers; closed panels are hidden */}
+              <div
+                id={`faq-panel-${item.id}`}
+                role="region"
+                aria-labelledby={`faq-btn-${item.id}`}
+                className="faq-panel"
+                hidden={!isOpen}
+              >
+                <p>{item.answer}</p>
+              </div>
             </div>
           );
         })}

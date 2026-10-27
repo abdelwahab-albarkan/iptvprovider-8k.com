@@ -2,7 +2,8 @@ import React from "react";
 import Link from "next/link";
 import Image from "next/image";
 import type { Metadata } from "next";
-import Breadcrumbs from "@/components/Breadcrumbs";
+import PageHero from "@/components/PageHero";
+import CtaBand from "@/components/CtaBand";
 import FaqAccordion from "@/components/FaqAccordion";
 
 export const metadata: Metadata = {
@@ -66,161 +67,119 @@ export default function FirestickSetupPage() {
   ];
 
   return (
-    <div className="section" style={{ paddingTop: "2.5rem" }}>
-      <div className="container">
-        <Breadcrumbs
-          items={[
-            { label: "Supported Devices", href: "/devices" },
-            { label: "Firestick Setup Guide" }
-          ]}
-        />
+    <>
+      <PageHero
+        crumbs={[
+          { label: "Supported Devices", href: "/devices" },
+          { label: "Firestick Setup Guide" }
+        ]}
+        badges={
+          <>
+            <span className="badge badge-orange">Amazon Fire TV Tutorial</span>
+            <span className="badge badge-emerald">Verified for Fire OS 6, 7 &amp; 8</span>
+          </>
+        }
+        title={
+          <>
+            How to Setup IPTV on <span className="text-gradient">Amazon Firestick</span>
+          </>
+        }
+        lead="Follow our verified, original walkthrough to configure IPTV on any Amazon Fire TV device (Firestick 4K, 4K Max, Fire TV Cube, or Fire TV Edition television). Total configuration time is approximately 4 to 6 minutes."
+        actions={
+          <>
+            <Link href="/plans" className="btn btn-primary">
+              Get an IPTV Subscription
+            </Link>
+            <a href="https://wa.me/212625218443" target="_blank" rel="noopener noreferrer" className="btn btn-whatsapp">
+              Instant WhatsApp Setup Help
+            </a>
+          </>
+        }
+        media={
+          <Image
+            src="/images/iptv-fire-tv-stick.jpg"
+            alt="Amazon Fire TV Stick configuration interface"
+            width={640}
+            height={400}
+            priority
+            sizes="(min-width: 960px) 520px, 100vw"
+          />
+        }
+      />
 
-        {/* Hero Section */}
-        <div style={{
-          display: "grid",
-          gridTemplateColumns: "repeat(auto-fit, minmax(320px, 1fr))",
-          gap: "3rem",
-          alignItems: "center",
-          marginBottom: "3.5rem"
-        }}>
-          <div>
-            <div style={{ display: "inline-flex", alignItems: "center", gap: "0.5rem", marginBottom: "1rem" }}>
-              <span className="badge badge-orange">Amazon Fire TV Tutorial</span>
-              <span className="badge badge-emerald">Verified for Fire OS 6, 7 & 8</span>
-            </div>
+      {/* Step-by-Step Cards */}
+      <section className="section">
+        <div className="container">
+          <ol className="steps">
+            {steps.map((step) => (
+              <li key={step.num} className="step">
+                <span className="step-num" aria-hidden="true">{step.num}</span>
+                <div className="step-body">
+                  <h2>{step.title}</h2>
+                  <p>{step.desc}</p>
+                </div>
+              </li>
+            ))}
+          </ol>
+        </div>
+      </section>
 
-            <h1>
-              How to Setup IPTV on <span className="text-gradient">Amazon Firestick</span>
-            </h1>
-
-            <p style={{ fontSize: "1.15rem", color: "var(--text-secondary)", lineHeight: "1.7" }}>
-              Follow our verified, original walkthrough to configure IPTV on any Amazon Fire TV device (Firestick 4K, 4K Max, Fire TV Cube, or Fire TV Edition television). Total configuration time is approximately 4 to 6 minutes.
+      {/* Remote Control Navigation & Search Tips */}
+      <section className="section section-alt">
+        <div className="container">
+          <div className="callout">
+            <h2>Mastering Firestick Remote Navigation &amp; Search Functionality</h2>
+            <p className="mb-8">
+              A common challenge for new IPTV users is locating specific channels across thousands of categories. Here is how to navigate efficiently using your standard Amazon remote:
             </p>
 
-            <div style={{ display: "flex", flexWrap: "wrap", gap: "1rem", marginTop: "1.75rem" }}>
-              <Link href="/plans" className="btn btn-primary">
-                Get an IPTV Subscription
-              </Link>
-              <a
-                href="https://wa.me/212625218443"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="btn btn-whatsapp"
-              >
-                Instant WhatsApp Setup Help
-              </a>
-            </div>
-          </div>
-
-          {/* Visual Showcase */}
-          <div style={{
-            borderRadius: "16px",
-            overflow: "hidden",
-            border: "1px solid var(--border-subtle)",
-            boxShadow: "var(--shadow-md)"
-          }}>
-            <Image
-              src="/images/iptv-fire-tv-stick.jpg"
-              alt="Amazon Fire TV Stick configuration interface"
-              width={640}
-              height={400}
-              priority
-              style={{ width: "100%", height: "auto", display: "block", objectFit: "cover" }}
-            />
-          </div>
-        </div>
-
-        {/* Step-by-Step Cards */}
-        <div style={{ display: "flex", flexDirection: "column", gap: "1.5rem", marginBottom: "4.5rem" }}>
-          {steps.map((step) => (
-            <div key={step.num} className="card card-glow" style={{ padding: "2rem" }}>
-              <div style={{ display: "flex", flexWrap: "wrap", alignItems: "flex-start", gap: "1.5rem" }}>
-                <div style={{
-                  width: "52px",
-                  height: "52px",
-                  borderRadius: "14px",
-                  background: "var(--gradient-brand)",
-                  display: "flex",
-                  alignItems: "center",
-                  justifyContent: "center",
-                  fontSize: "1.3rem",
-                  fontWeight: "800",
-                  color: "#ffffff",
-                  flexShrink: 0
-                }}>
-                  {step.num}
-                </div>
-                <div style={{ flex: "1 1 200px", minWidth: 0 }}>
-                  <h2 style={{ fontSize: "1.35rem", marginBottom: "0.6rem", color: "var(--text-primary)" }}>
-                    {step.title}
-                  </h2>
-                  <p style={{ color: "var(--text-secondary)", lineHeight: "1.7", fontSize: "0.975rem" }}>
-                    {step.desc}
-                  </p>
-                </div>
+            <div className="grid-3">
+              <div className="tip">
+                <h3>Universal Search</h3>
+                <p>
+                  Click the Search (Magnifying Glass) icon at the top of your player. Enter keywords (e.g. &apos;ESPN&apos;, &apos;HBO&apos;, or team names) to search across all live channels and on-demand titles simultaneously.
+                </p>
+              </div>
+              <div className="tip">
+                <h3>Favorites Quick-Tag</h3>
+                <p>
+                  While hovering over any channel, press and hold the center Select button or press the Options button (three horizontal lines) to add it to your &apos;Favorites&apos; category for instant 1-click access.
+                </p>
+              </div>
+              <div className="tip">
+                <h3>Audio &amp; Subtitles</h3>
+                <p>
+                  During live playback, press the Options button on your Fire TV remote to toggle alternate audio languages, surround sound feeds, or closed captions.
+                </p>
               </div>
             </div>
-          ))}
-        </div>
-
-        {/* Remote Control Navigation & Search Tips */}
-        <div className="card" style={{ padding: "2.5rem", background: "var(--bg-orange-soft)", borderColor: "var(--border-highlight)", marginBottom: "4.5rem" }}>
-          <h2 style={{ fontSize: "1.6rem", marginBottom: "1rem" }}>
-            Mastering Firestick Remote Navigation & Search Functionality
-          </h2>
-          <p style={{ marginBottom: "1.5rem" }}>
-            A common challenge for new IPTV users is locating specific channels across thousands of categories. Here is how to navigate efficiently using your standard Amazon remote:
-          </p>
-
-          <div className="grid-3">
-            <div style={{ background: "#ffffff", padding: "1.25rem", borderRadius: "10px", border: "1px solid var(--border-subtle)" }}>
-              <h4 style={{ color: "var(--accent-orange-dark)", marginBottom: "0.5rem" }}>Universal Search</h4>
-              <p style={{ fontSize: "0.875rem", color: "var(--text-secondary)" }}>
-                Click the Search (Magnifying Glass) icon at the top of your player. Enter keywords (e.g. &apos;ESPN&apos;, &apos;HBO&apos;, or team names) to search across all live channels and on-demand titles simultaneously.
-              </p>
-            </div>
-
-            <div style={{ background: "#ffffff", padding: "1.25rem", borderRadius: "10px", border: "1px solid var(--border-subtle)" }}>
-              <h4 style={{ color: "var(--accent-orange-dark)", marginBottom: "0.5rem" }}>Favorites Quick-Tag</h4>
-              <p style={{ fontSize: "0.875rem", color: "var(--text-secondary)" }}>
-                While hovering over any channel, press and hold the center Select button or press the Options button (three horizontal lines) to add it to your &apos;Favorites&apos; category for instant 1-click access.
-              </p>
-            </div>
-
-            <div style={{ background: "#ffffff", padding: "1.25rem", borderRadius: "10px", border: "1px solid var(--border-subtle)" }}>
-              <h4 style={{ color: "var(--accent-orange-dark)", marginBottom: "0.5rem" }}>Audio & Subtitles</h4>
-              <p style={{ fontSize: "0.875rem", color: "var(--text-secondary)" }}>
-                During live playback, press the Options button on your Fire TV remote to toggle alternate audio languages, surround sound feeds, or closed captions.
-              </p>
-            </div>
           </div>
         </div>
+      </section>
 
-        {/* Firestick FAQ */}
-        <div style={{ maxWidth: "800px", margin: "0 auto 4rem auto" }}>
+      {/* Firestick FAQ */}
+      <section className="section">
+        <div className="container container-narrow">
           <div className="section-header">
             <span className="section-tag">Firestick FAQ</span>
-            <h2>Common Firestick Questions & Diagnostics</h2>
+            <h2>Common Firestick Questions &amp; Diagnostics</h2>
           </div>
           <FaqAccordion items={firestickFaqs} withSchema={true} />
         </div>
+      </section>
 
-        {/* CTA */}
-        <div style={{ textAlign: "center", padding: "3rem 1.5rem", background: "var(--bg-orange-soft)", borderRadius: "16px", border: "1px solid var(--border-highlight)" }}>
-          <h2 style={{ fontSize: "1.85rem", marginBottom: "0.75rem" }}>Need Assistance with Your Firestick?</h2>
-          <p style={{ maxWidth: "600px", margin: "0 auto 1.75rem auto", color: "var(--text-secondary)" }}>
-            Our technical support team is standing by to provide connection URLs, troubleshooting, and activation assistance.
-          </p>
-          <div style={{ display: "flex", justifyContent: "center", gap: "1rem", flexWrap: "wrap" }}>
-            <a href="https://wa.me/212625218443" target="_blank" rel="noopener noreferrer" className="btn btn-whatsapp">
-              WhatsApp Support (+212625218443)
-            </a>
-            <a href="mailto:support@streamb4.com" className="btn btn-secondary">
-              Email: support@streamb4.com
-            </a>
-          </div>
-        </div>
-      </div>
-    </div>
+      {/* CTA */}
+      <CtaBand
+        title="Need Assistance with Your Firestick?"
+        text="Our technical support team is standing by to provide connection URLs, troubleshooting, and activation assistance."
+      >
+        <a href="https://wa.me/212625218443" target="_blank" rel="noopener noreferrer" className="btn btn-whatsapp">
+          WhatsApp Support (+212625218443)
+        </a>
+        <a href="mailto:support@streamb4.com" className="btn btn-ghost">
+          Email: support@streamb4.com
+        </a>
+      </CtaBand>
+    </>
   );
 }

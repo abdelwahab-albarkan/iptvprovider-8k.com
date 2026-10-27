@@ -28,53 +28,31 @@ export default function ContactForm() {
   )}`;
 
   return (
-    <div className="card" style={{ padding: "2.5rem" }}>
+    <div className="card card-lg">
       {/* Front-end Status Notice */}
-      <div style={{
-        display: "flex",
-        alignItems: "center",
-        gap: "0.5rem",
-        padding: "0.75rem 1rem",
-        background: "var(--bg-orange-soft)",
-        border: "1px solid var(--border-highlight)",
-        borderRadius: "8px",
-        marginBottom: "1.5rem",
-        fontSize: "0.85rem",
-        color: "var(--text-secondary)"
-      }}>
-        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--accent-orange-dark)" strokeWidth="2">
+      <div className="info-bar">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" aria-hidden="true">
           <circle cx="12" cy="12" r="10" />
           <line x1="12" y1="16" x2="12" y2="12" />
           <line x1="12" y1="8" x2="12.01" y2="8" />
         </svg>
         <span>
-          <strong>Direct Support Desk:</strong> Submit your details below or email directly to <a href="mailto:support@streamb4.com" style={{ color: "var(--accent-orange-dark)", fontWeight: "600" }}>support@streamb4.com</a>.
+          <strong>Direct Support Desk:</strong> Submit your details below or email directly to <a href="mailto:support@streamb4.com">support@streamb4.com</a>.
         </span>
       </div>
 
       {status === "demo-success" ? (
-        <div style={{ textAlign: "center", padding: "1.5rem 0.5rem" }}>
-          <div style={{
-            width: "56px",
-            height: "56px",
-            borderRadius: "50%",
-            background: "rgba(16, 185, 129, 0.15)",
-            border: "1px solid rgba(16, 185, 129, 0.3)",
-            display: "inline-flex",
-            alignItems: "center",
-            justifyContent: "center",
-            color: "var(--accent-emerald)",
-            marginBottom: "1.25rem"
-          }}>
-            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+        <div className="success-state" role="status">
+          <div className="success-icon">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
               <polyline points="20 6 9 17 4 12" />
             </svg>
           </div>
-          <h3 style={{ fontSize: "1.35rem", marginBottom: "0.5rem" }}>Inquiry Validated</h3>
-          <p style={{ color: "var(--text-secondary)", marginBottom: "1.5rem", fontSize: "0.95rem" }}>
+          <h3>Inquiry Validated</h3>
+          <p className="mb-6">
             Thank you, <strong>{formData.name || "Customer"}</strong>. Your ticket draft is ready. To send directly to our priority support inbox right now, click the button below:
           </p>
-          <div style={{ display: "flex", justifyContent: "center", gap: "1rem", flexWrap: "wrap", marginBottom: "1.5rem" }}>
+          <div className="btn-row center mb-6">
             <a href={mailtoLink} className="btn btn-primary btn-sm">
               Send via Email (support@streamb4.com)
             </a>
@@ -89,21 +67,22 @@ export default function ContactForm() {
               Reset Form
             </button>
           </div>
-          <div style={{ fontSize: "0.85rem", color: "var(--text-muted)" }}>
+          <div className="small muted">
             Direct email recipient: <code>support@streamb4.com</code>
           </div>
         </div>
       ) : (
         <form onSubmit={handleSubmit} noValidate>
-          <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(240px, 1fr))", gap: "1.25rem" }}>
+          <div className="form-grid">
             <div className="form-group">
               <label htmlFor="contact-name" className="form-label">
-                Full Name <span style={{ color: "var(--accent-rose)" }}>*</span>
+                Full Name <span className="req">*</span>
               </label>
               <input
                 id="contact-name"
                 type="text"
                 required
+                autoComplete="name"
                 className="form-input"
                 placeholder="e.g. Michael Miller"
                 value={formData.name}
@@ -113,21 +92,20 @@ export default function ContactForm() {
 
             <div className="form-group">
               <label htmlFor="contact-email" className="form-label">
-                Email Address <span style={{ color: "var(--accent-rose)" }}>*</span>
+                Email Address <span className="req">*</span>
               </label>
               <input
                 id="contact-email"
                 type="email"
                 required
+                autoComplete="email"
                 className="form-input"
                 placeholder="you@domain.com"
                 value={formData.email}
                 onChange={(e) => setFormData({ ...formData, email: e.target.value })}
               />
             </div>
-          </div>
 
-          <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(240px, 1fr))", gap: "1.25rem" }}>
             <div className="form-group">
               <label htmlFor="contact-subject" className="form-label">Inquiry Topic</label>
               <select
@@ -165,7 +143,7 @@ export default function ContactForm() {
 
           <div className="form-group">
             <label htmlFor="contact-message" className="form-label">
-              Detailed Description <span style={{ color: "var(--accent-rose)" }}>*</span>
+              Detailed Description <span className="req">*</span>
             </label>
             <textarea
               id="contact-message"
@@ -179,8 +157,7 @@ export default function ContactForm() {
 
           <button
             type="submit"
-            className="btn btn-primary btn-lg"
-            style={{ width: "100%" }}
+            className="btn btn-primary btn-lg btn-block"
             disabled={status === "submitting" || !formData.email || !formData.message}
           >
             {status === "submitting" ? "Validating Parameters..." : "Submit Inquiry (Client Preview)"}

@@ -36,34 +36,20 @@ export default function Breadcrumbs({ items }: BreadcrumbsProps) {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       />
-      <nav aria-label="Breadcrumb" style={{ marginBottom: "1.75rem" }}>
-        <ol style={{
-          display: "flex",
-          flexWrap: "wrap",
-          alignItems: "center",
-          gap: "0.5rem",
-          listStyle: "none",
-          fontSize: "0.85rem",
-          color: "var(--text-muted)"
-        }}>
+      <nav aria-label="Breadcrumb" className="breadcrumbs">
+        <ol>
           <li>
-            <Link href="/" style={{ color: "var(--text-secondary)", transition: "color 0.2s ease" }}>
-              Home
-            </Link>
+            <Link href="/">Home</Link>
           </li>
           {items.map((item, idx) => {
             const isLast = idx === items.length - 1;
             return (
-              <li key={idx} style={{ display: "flex", alignItems: "center", gap: "0.5rem" }}>
-                <span aria-hidden="true" style={{ color: "var(--text-muted)", opacity: 0.6 }}>/</span>
+              <li key={idx}>
+                <span aria-hidden="true" className="sep">/</span>
                 {item.href && !isLast ? (
-                  <Link href={item.href} style={{ color: "var(--text-secondary)" }}>
-                    {item.label}
-                  </Link>
+                  <Link href={item.href}>{item.label}</Link>
                 ) : (
-                  <span aria-current="page" style={{ color: "var(--accent-orange-dark)", fontWeight: "600" }}>
-                    {item.label}
-                  </span>
+                  <span aria-current="page">{item.label}</span>
                 )}
               </li>
             );

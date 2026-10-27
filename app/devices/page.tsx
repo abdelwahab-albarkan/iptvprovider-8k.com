@@ -2,7 +2,8 @@ import React from "react";
 import Link from "next/link";
 import Image from "next/image";
 import type { Metadata } from "next";
-import Breadcrumbs from "@/components/Breadcrumbs";
+import PageHero from "@/components/PageHero";
+import CtaBand from "@/components/CtaBand";
 
 export const metadata: Metadata = {
   title: "Supported IPTV Devices & Players | Hardware Compatibility Guide",
@@ -126,26 +127,23 @@ export default function DevicesPage() {
   ];
 
   return (
-    <div className="section" style={{ paddingTop: "2.5rem" }}>
-      <div className="container">
-        <Breadcrumbs items={[{ label: "Supported Devices" }]} />
-
-        {/* Hero Section */}
-        <div style={{ maxWidth: "860px", marginBottom: "3rem" }}>
-          <div style={{ display: "inline-flex", alignItems: "center", gap: "0.5rem", marginBottom: "1rem" }}>
+    <>
+      <PageHero
+        crumbs={[{ label: "Supported Devices" }]}
+        badges={
+          <>
             <span className="badge badge-orange">Universal Media Compatibility</span>
             <span className="badge badge-emerald">Zero Hardware Lock-In</span>
-          </div>
-
-          <h1>
-            Supported <span className="text-gradient">IPTV Devices</span> & Hardware Matrix
-          </h1>
-
-          <p style={{ fontSize: "1.15rem", color: "var(--text-secondary)", lineHeight: "1.7" }}>
-            IPTVProvider8K operates on open standard streaming protocols (M3U, Xtream Codes API, and HLS). You are never forced to buy a proprietary locked box. Enjoy your favorite streams across television sticks, smart TVs, mobile screens, and home theater setups.
-          </p>
-
-          <div style={{ display: "flex", flexWrap: "wrap", gap: "1rem", marginTop: "1.75rem" }}>
+          </>
+        }
+        title={
+          <>
+            Supported <span className="text-gradient">IPTV Devices</span> &amp; Hardware Matrix
+          </>
+        }
+        lead="IPTVProvider8K operates on open standard streaming protocols (M3U, Xtream Codes API, and HLS). You are never forced to buy a proprietary locked box. Enjoy your favorite streams across television sticks, smart TVs, mobile screens, and home theater setups."
+        actions={
+          <>
             <Link href="/plans" className="btn btn-primary">
               View Subscription Options
             </Link>
@@ -155,80 +153,68 @@ export default function DevicesPage() {
             <a href="https://wa.me/212625218443" target="_blank" rel="noopener noreferrer" className="btn btn-whatsapp">
               Chat on WhatsApp
             </a>
-          </div>
-        </div>
+          </>
+        }
+      />
 
-        {/* Visual Showcase Banner */}
-        <div style={{
-          display: "grid",
-          gridTemplateColumns: "repeat(auto-fit, minmax(300px, 1fr))",
-          gap: "2.5rem",
-          alignItems: "center",
-          marginBottom: "4rem",
-          padding: "2rem",
-          background: "var(--bg-secondary)",
-          borderRadius: "16px",
-          border: "1px solid var(--border-subtle)"
-        }}>
+      {/* Visual Showcase Banner */}
+      <section className="section">
+        <div className="container split">
           <div>
             <span className="section-tag">Cross-Platform Ecosystem</span>
-            <h2 style={{ fontSize: "1.65rem", marginBottom: "1rem" }}>Stream Effortlessly On Any Screen You Own</h2>
-            <p style={{ color: "var(--text-secondary)", fontSize: "0.95rem", lineHeight: "1.7", marginBottom: "1rem" }}>
+            <h2>Stream Effortlessly On Any Screen You Own</h2>
+            <p className="mb-6">
               Whether you are watching live 4K NFL football in your living room, catching evening news on an iPad in the kitchen, or traveling with your Firestick, your subscription activates seamlessly across all your devices.
             </p>
-            <div style={{ display: "flex", gap: "1.5rem", flexWrap: "wrap", fontSize: "0.875rem" }}>
-              <div><strong style={{ color: "var(--accent-orange-dark)" }}>4K & 8K</strong> Resolution Ready</div>
-              <div><strong style={{ color: "var(--accent-orange-dark)" }}>HEVC / H.265</strong> Hardware Acceleration</div>
-              <div><strong style={{ color: "var(--accent-orange-dark)" }}>Anti-Freeze</strong> Edge Routing</div>
+            <div className="stat-row">
+              <div><strong>4K &amp; 8K</strong> Resolution Ready</div>
+              <div><strong>HEVC / H.265</strong> Hardware Acceleration</div>
+              <div><strong>Anti-Freeze</strong> Edge Routing</div>
             </div>
           </div>
-          <div style={{ borderRadius: "12px", overflow: "hidden", border: "1px solid var(--border-subtle)", boxShadow: "var(--shadow-sm)" }}>
+          <div className="media-frame">
             <Image
               src="/images/iptv-heimkino.jpg"
               alt="IPTVProvider8K Home Theater and Living Room Compatibility"
               width={580}
               height={360}
-              style={{ width: "100%", height: "auto", display: "block", objectFit: "cover" }}
+              sizes="(min-width: 900px) 560px, 100vw"
             />
           </div>
         </div>
+      </section>
 
-        {/* Hardware Categories Grid */}
-        <div className="grid-3" style={{ marginBottom: "4.5rem" }}>
-          {hardwareCategories.map((cat, idx) => (
-            <div key={idx} className="card" style={{ display: "flex", flexDirection: "column" }}>
-              <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: "1rem" }}>
-                <span className="badge badge-orange">{cat.badge}</span>
-                <div style={{ width: "48px", height: "48px", position: "relative", display: "flex", alignItems: "center", justifyContent: "center" }}>
-                  <Image
-                    src={cat.image}
-                    alt={cat.title}
-                    width={44}
-                    height={44}
-                    style={{ objectFit: "contain", maxHeight: "44px" }}
-                  />
+      {/* Hardware Categories Grid */}
+      <section className="section section-alt">
+        <div className="container">
+          <div className="grid-3">
+            {hardwareCategories.map((cat, idx) => (
+              <div key={idx} className="card card-hover card-flex">
+                <div className="card-head">
+                  <span className="badge badge-orange">{cat.badge}</span>
+                  <span className="logo-box">
+                    <Image src={cat.image} alt={cat.title} width={40} height={40} className="logo-img" />
+                  </span>
                 </div>
+                <h2 className="h-card">{cat.title}</h2>
+                <p className="small mb-6">{cat.desc}</p>
+                <ul className="dot-list mb-8">
+                  {cat.devices.map((d, dIdx) => (
+                    <li key={dIdx}>{d}</li>
+                  ))}
+                </ul>
+                <Link href={cat.setupLink} className="btn btn-secondary btn-sm btn-block push">
+                  {cat.setupText} &rarr;
+                </Link>
               </div>
-              <h2 style={{ fontSize: "1.3rem", marginBottom: "0.5rem", color: "var(--text-primary)" }}>
-                {cat.title}
-              </h2>
-              <p style={{ fontSize: "0.9rem", color: "var(--text-secondary)", marginBottom: "1.25rem" }}>
-                {cat.desc}
-              </p>
-              <ul style={{ listStyle: "disc", paddingLeft: "1.25rem", color: "var(--text-secondary)", fontSize: "0.875rem", marginBottom: "1.75rem", display: "flex", flexDirection: "column", gap: "0.4rem" }}>
-                {cat.devices.map((d, dIdx) => (
-                  <li key={dIdx}>{d}</li>
-                ))}
-              </ul>
-              <Link href={cat.setupLink} className="btn btn-secondary btn-sm" style={{ marginTop: "auto", width: "100%" }}>
-                {cat.setupText} &rarr;
-              </Link>
-            </div>
-          ))}
+            ))}
+          </div>
         </div>
+      </section>
 
-        {/* Recommended IPTV Players */}
-        <div style={{ marginBottom: "4.5rem" }}>
+      {/* Recommended IPTV Players */}
+      <section className="section">
+        <div className="container">
           <div className="section-header">
             <span className="section-tag">Player Applications</span>
             <h2>Recommended IPTV Player Software</h2>
@@ -239,82 +225,77 @@ export default function DevicesPage() {
 
           <div className="grid-2">
             {recommendedPlayers.map((player, idx) => (
-              <div key={idx} className="card">
-                <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: "0.75rem" }}>
-                  <h3 style={{ fontSize: "1.25rem", color: "var(--text-primary)", margin: 0 }}>
-                    {player.name}
-                  </h3>
+              <div key={idx} className="card card-hover">
+                <div className="card-title-row">
+                  <h3>{player.name}</h3>
                   <span className="badge badge-orange">{player.platform}</span>
                 </div>
-                <p style={{ fontSize: "0.925rem", color: "var(--text-secondary)", marginBottom: "0.75rem" }}>
-                  {player.pros}
-                </p>
-                <div style={{ fontSize: "0.85rem", color: "var(--accent-orange-dark)", fontWeight: "600" }}>
-                  Recommended For: <span style={{ color: "var(--text-primary)", fontWeight: "400" }}>{player.recommendedFor}</span>
+                <p className="small mb-6">{player.pros}</p>
+                <div className="small">
+                  <strong className="text-brand">Recommended For:</strong> {player.recommendedFor}
                 </div>
               </div>
             ))}
           </div>
         </div>
+      </section>
 
-        {/* Technical Minimum Requirements */}
-        <div className="card" style={{ padding: "2.5rem", background: "var(--bg-orange-soft)", borderColor: "var(--border-highlight)", marginBottom: "4rem" }}>
-          <h2 style={{ fontSize: "1.6rem", marginBottom: "1rem" }}>
-            Recommended Technical Specifications for 8K & 4K Streaming
-          </h2>
-          <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(240px, 1fr))", gap: "2rem", marginTop: "1.5rem" }}>
-            <div style={{ background: "#ffffff", padding: "1.25rem", borderRadius: "10px", border: "1px solid var(--border-subtle)" }}>
-              <h4 style={{ color: "var(--accent-orange-dark)", marginBottom: "0.5rem" }}>Network Bandwidth</h4>
-              <p style={{ fontSize: "0.9rem", color: "var(--text-secondary)" }}>
-                • 1080p Full HD: 12 Mbps download<br />
-                • 4K Ultra HD: 25 Mbps download<br />
-                • 8K Ultra HD: 50+ Mbps download<br />
-                • Latency (Ping): Sub-50ms to US hubs
-              </p>
-            </div>
-            <div style={{ background: "#ffffff", padding: "1.25rem", borderRadius: "10px", border: "1px solid var(--border-subtle)" }}>
-              <h4 style={{ color: "var(--accent-emerald)", marginBottom: "0.5rem" }}>Hardware Processing</h4>
-              <p style={{ fontSize: "0.9rem", color: "var(--text-secondary)" }}>
-                • Quad-core 1.5 GHz+ SoC<br />
-                • 2 GB+ system RAM for smooth EPG caching<br />
-                • Dedicated GPU video decoding block<br />
-                • Modern OS: Fire OS 6+, Android 9+, tvOS 14+
-              </p>
-            </div>
-            <div style={{ background: "#ffffff", padding: "1.25rem", borderRadius: "10px", border: "1px solid var(--border-subtle)" }}>
-              <h4 style={{ color: "var(--accent-orange-dark)", marginBottom: "0.5rem" }}>Supported Video Codecs</h4>
-              <p style={{ fontSize: "0.9rem", color: "var(--text-secondary)" }}>
-                • HEVC (High Efficiency Video Coding / H.265)<br />
-                • AVC (Advanced Video Coding / H.264)<br />
-                • AV1 Hardware Decoding (where supported)<br />
-                • Audio: AAC, AC3 (Dolby Digital Passthrough)
-              </p>
+      {/* Technical Minimum Requirements */}
+      <section className="section section-alt">
+        <div className="container">
+          <div className="callout">
+            <h2>Recommended Technical Specifications for 8K &amp; 4K Streaming</h2>
+            <div className="grid-3 mt-8">
+              <div className="tip">
+                <h3>Network Bandwidth</h3>
+                <ul className="dot-list">
+                  <li>1080p Full HD: 12 Mbps download</li>
+                  <li>4K Ultra HD: 25 Mbps download</li>
+                  <li>8K Ultra HD: 50+ Mbps download</li>
+                  <li>Latency (Ping): Sub-50ms to US hubs</li>
+                </ul>
+              </div>
+              <div className="tip success">
+                <h3>Hardware Processing</h3>
+                <ul className="dot-list">
+                  <li>Quad-core 1.5 GHz+ SoC</li>
+                  <li>2 GB+ system RAM for smooth EPG caching</li>
+                  <li>Dedicated GPU video decoding block</li>
+                  <li>Modern OS: Fire OS 6+, Android 9+, tvOS 14+</li>
+                </ul>
+              </div>
+              <div className="tip">
+                <h3>Supported Video Codecs</h3>
+                <ul className="dot-list">
+                  <li>HEVC (High Efficiency Video Coding / H.265)</li>
+                  <li>AVC (Advanced Video Coding / H.264)</li>
+                  <li>AV1 Hardware Decoding (where supported)</li>
+                  <li>Audio: AAC, AC3 (Dolby Digital Passthrough)</li>
+                </ul>
+              </div>
             </div>
           </div>
         </div>
+      </section>
 
-        {/* Step-by-Step Links */}
-        <div style={{ textAlign: "center", padding: "3rem 1.5rem", background: "var(--bg-orange-soft)", borderRadius: "16px", border: "1px solid var(--border-highlight)" }}>
-          <h2 style={{ fontSize: "1.85rem", marginBottom: "0.75rem" }}>Ready to Configure Your Hardware?</h2>
-          <p style={{ maxWidth: "600px", margin: "0 auto 1.75rem auto", color: "var(--text-secondary)" }}>
-            Explore our comprehensive, verified device setup tutorials with screenshots and step-by-step instructions.
-          </p>
-          <div style={{ display: "flex", justifyContent: "center", gap: "1rem", flexWrap: "wrap" }}>
-            <Link href="/setup/firestick" className="btn btn-primary">
-              Firestick Setup Tutorial
-            </Link>
-            <Link href="/setup/smart-tv" className="btn btn-secondary">
-              Smart TV Setup Tutorial
-            </Link>
-            <Link href="/setup/android" className="btn btn-secondary">
-              Android TV Setup Tutorial
-            </Link>
-            <a href="mailto:support@streamb4.com" className="btn btn-secondary">
-              Email Support
-            </a>
-          </div>
-        </div>
-      </div>
-    </div>
+      {/* Step-by-Step Links */}
+      <CtaBand
+        title="Ready to Configure Your Hardware?"
+        text="Explore our comprehensive, verified device setup tutorials with screenshots and step-by-step instructions."
+      >
+        <Link href="/setup/firestick" className="btn btn-primary">
+          Firestick Setup Tutorial
+        </Link>
+        <Link href="/setup/smart-tv" className="btn btn-ghost">
+          Smart TV Setup Tutorial
+        </Link>
+        <Link href="/setup/android" className="btn btn-ghost">
+          Android TV Setup Tutorial
+        </Link>
+        <a href="mailto:support@streamb4.com" className="btn btn-ghost">
+          Email Support
+        </a>
+      </CtaBand>
+    </>
   );
 }

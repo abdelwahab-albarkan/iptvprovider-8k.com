@@ -1,7 +1,21 @@
 import type { Metadata, Viewport } from "next";
+import { Inter, Plus_Jakarta_Sans } from "next/font/google";
 import "./globals.css";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+
+const inter = Inter({
+  subsets: ["latin"],
+  display: "swap",
+  variable: "--font-inter",
+});
+
+const jakarta = Plus_Jakarta_Sans({
+  subsets: ["latin"],
+  display: "swap",
+  weight: ["600", "700", "800"],
+  variable: "--font-jakarta",
+});
 
 export const viewport: Viewport = {
   width: "device-width",
@@ -52,13 +66,16 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en-US">
+    <html lang="en-US" className={`${inter.variable} ${jakarta.variable}`}>
       <head>
         <link rel="icon" href="/favicon.ico" sizes="any" />
       </head>
       <body>
+        <a href="#main-content" className="skip-link">
+          Skip to content
+        </a>
         <Header />
-        <main id="main-content" style={{ flex: 1 }}>
+        <main id="main-content">
           {children}
         </main>
         <Footer />
