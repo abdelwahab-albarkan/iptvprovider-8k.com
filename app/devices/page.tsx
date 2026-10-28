@@ -193,7 +193,7 @@ export default function DevicesPage() {
                 <div className="card-head">
                   <span className="badge badge-orange">{cat.badge}</span>
                   <span className="logo-box">
-                    <Image src={cat.image} alt={cat.title} width={40} height={40} className="logo-img" />
+                    <Image src={cat.image} alt={cat.title} width={40} height={40} className="logo-img" style={{ width: "auto", height: "auto" }} />
                   </span>
                 </div>
                 <h2 className="h-card">{cat.title}</h2>

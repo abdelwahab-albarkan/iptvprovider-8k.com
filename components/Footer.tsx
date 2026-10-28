@@ -104,7 +104,7 @@ export default function Footer() {
         {/* Legal Disclaimer Banner */}
         <div className="legal-notice">
           <p>
-            <strong>Legal Notice &amp; Content Distribution Compliance:</strong> IPTVProvider8K strictly operates as an authorized digital media transmission provider delivering licensed streaming protocols (M3U, Xtream API, HLS). We do not host, re-stream, broadcast, or sell access to unlicensed copyright streams. All trademarks, brand names, product references, and registered logos (such as Amazon Fire TV, Samsung, LG, Android, Apple TV, Kodi, and IPTV Smarters) belong to their respective proprietary trademark holders and are utilized strictly for compatibility identification and instructional guidance.
+            <strong>Disclaimer:</strong> IPTVProvider8K provides an IPTV streaming subscription that works with third-party media players using standard formats (M3U playlists, Xtream Codes API, and HLS). We do not develop, sell, or support those player apps or the devices they run on. All trademarks, brand names, and logos mentioned on this site (including Amazon Fire TV, Samsung, LG, Android, Google TV, Apple TV, NVIDIA Shield, Kodi, TiviMate, and IPTV Smarters) belong to their respective owners and are used only to describe compatibility and setup steps.
           </p>
         </div>
 

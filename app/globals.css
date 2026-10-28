@@ -2820,3 +2820,21 @@ code {
 .site-header {
   top: calc(-1 * var(--topbar-h, 0px));
 }
+
+.steps-grid {
+  list-style: none;
+}
+
+.content-narrow {
+  max-width: var(--content-max);
+}
+
+.content-narrow > p + p,
+.content-narrow > p + h3,
+.content-narrow > ul + p {
+  margin-top: var(--space-4);
+}
+
+.content-narrow > h3 {
+  margin-top: var(--space-8);
+}
