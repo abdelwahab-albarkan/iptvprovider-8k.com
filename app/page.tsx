@@ -94,7 +94,7 @@ export default function HomePage() {
       <SchemaJsonLd data={orgAndWebSiteSchema} />
 
       {/* Hero Section */}
-      <section className="hero bg-navy on-dark">
+      <section className="hero bg-hero">
         <div className="container hero-grid">
           {/* Hero Copy */}
           <div>

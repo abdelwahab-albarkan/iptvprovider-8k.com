@@ -13,7 +13,7 @@ interface PageHeroProps {
 
 export default function PageHero({ crumbs, badges, title, lead, actions, media, children }: PageHeroProps) {
   return (
-    <section className="page-hero bg-navy on-dark">
+    <section className="page-hero bg-hero">
       <div className="container">
         <Breadcrumbs items={crumbs} />
         <div className={`page-hero-grid${media ? " has-media" : ""}`}>

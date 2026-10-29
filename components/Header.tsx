@@ -3,6 +3,7 @@
 import React, { useEffect, useRef, useState } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import ThemeToggle from "./ThemeToggle";
 
 const navLinks = [
   { label: "Home", href: "/", match: "/" },
@@ -133,6 +134,8 @@ export default function Header() {
               </Link>
             </div>
 
+            <ThemeToggle />
+
             <button
               type="button"
               className="menu-toggle"
@@ -187,6 +190,7 @@ export default function Header() {
                 })}
               </ul>
               <div className="drawer-cta">
+                <ThemeToggle withLabel />
                 <a href="https://wa.me/212625218443" target="_blank" rel="noopener noreferrer" className="btn btn-whatsapp btn-block">
                   WhatsApp (+212625218443)
                 </a>

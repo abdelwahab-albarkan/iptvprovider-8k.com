@@ -66,8 +66,14 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en-US" className={`${inter.variable} ${jakarta.variable}`}>
+    <html lang="en-US" className={`${inter.variable} ${jakarta.variable}`} suppressHydrationWarning>
       <head>
+        {/* Apply the saved (or system) theme before first paint to avoid a flash */}
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `(function(){try{var t=localStorage.getItem("theme");if(t!=="light"&&t!=="dark"){t=window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light"}document.documentElement.setAttribute("data-theme",t)}catch(e){}})()`,
+          }}
+        />
         <link rel="icon" href="/favicon.ico" sizes="any" />
       </head>
       <body>

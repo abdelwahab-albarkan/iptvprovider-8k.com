@@ -8,7 +8,7 @@ interface CtaBandProps {
 
 export default function CtaBand({ title, text, children }: CtaBandProps) {
   return (
-    <section className="cta-band bg-navy on-dark">
+    <section className="cta-band bg-brand on-dark">
       <div className="container">
         <h2>{title}</h2>
         {text && <p>{text}</p>}
