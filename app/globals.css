@@ -3153,3 +3153,88 @@ code {
 .contact-strip .contact-card .btn {
   word-break: break-word;
 }
+
+/* ---------- Responsive refinements ---------- */
+.nav-link {
+  white-space: nowrap;
+}
+
+/* 1080–1279px: desktop nav + CTAs share a tight row; keep links on one line */
+@media (min-width: 1080px) and (max-width: 1279px) {
+  .nav-link {
+    padding-inline: 0.55rem;
+    font-size: 0.875rem;
+  }
+  .desktop-nav ul {
+    gap: 0;
+  }
+}
+
+@media (min-width: 1080px) and (max-width: 1199px) {
+  .desktop-cta .btn-whatsapp {
+    display: none;
+  }
+}
+
+/* Very small phones (≤374px): compact brand so toggle + menu fit */
+@media (max-width: 374px) {
+  .container {
+    padding-inline: 0.875rem;
+  }
+  .nav-inner,
+  .nav-actions {
+    gap: 0.375rem;
+  }
+  .brand {
+    gap: 0.5rem;
+    min-width: 0;
+  }
+  .brand-mark {
+    width: 34px;
+    height: 34px;
+    font-size: 0.9rem;
+  }
+  .brand-name {
+    font-size: 1rem;
+  }
+  .brand-tag {
+    letter-spacing: 0.04em;
+  }
+}
+
+/* Long emails/URLs never force sideways scroll */
+.notice-box,
+.footer-links,
+.contact-card p,
+.prose {
+  overflow-wrap: anywhere;
+}
+
+.notice-box {
+  line-height: 1.9;
+}
+
+/* Keep the floating WhatsApp button clear of the last footer links on phones */
+@media (max-width: 639px) {
+  .site-footer {
+    padding-bottom: calc(var(--space-8) + 72px + env(safe-area-inset-bottom));
+  }
+}
+
+/* Small phones: top contact bar fits in two short rows (the phone number is the same as WhatsApp) */
+@media (max-width: 479px) {
+  .top-bar-inner,
+  .top-bar-group {
+    gap: 0 var(--space-4);
+  }
+  .top-bar a[href^="tel:"] {
+    display: none;
+  }
+}
+
+/* ≤374px: floating WhatsApp button stays icon-only so it covers less content */
+@media (max-width: 374px) {
+  .wa-float-label {
+    display: none;
+  }
+}
