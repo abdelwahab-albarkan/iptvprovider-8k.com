@@ -98,7 +98,7 @@ export default function Header() {
               <span className="brand-name">
                 IPTVProvider<span>8K</span>
               </span>
-              <span className="brand-tag">US IPTV Streaming</span>
+              <span className="brand-tag">Authorized US Streaming</span>
             </span>
           </Link>
 

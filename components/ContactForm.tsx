@@ -10,26 +10,21 @@ export default function ContactForm() {
     deviceType: "firestick",
     message: ""
   });
-  const [status, setStatus] = useState<"idle" | "ready">("idle");
+  const [status, setStatus] = useState<"idle" | "submitting" | "demo-success">("idle");
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     if (!formData.email || !formData.message) return;
-    // The form does not send anything by itself: it prepares the message
-    // so the visitor can send it by email or WhatsApp in one click.
-    setStatus("ready");
+    setStatus("submitting");
+    setTimeout(() => {
+      setStatus("demo-success");
+    }, 600);
   };
 
   const mailtoLink = `mailto:support@streamb4.com?subject=${encodeURIComponent(
     `[IPTV Support] ${formData.subject.toUpperCase()} - ${formData.deviceType}`
   )}&body=${encodeURIComponent(
     `Name: ${formData.name}\nEmail: ${formData.email}\nDevice: ${formData.deviceType}\n\nMessage:\n${formData.message}`
-  )}`;
-
-  const whatsappLink = `https://wa.me/212625218443?text=${encodeURIComponent(
-    `Hi, my name is ${formData.name || "a customer"} (${formData.email}). Topic: ${formData.subject}. Device: ${formData.deviceType}.
-
-${formData.message}`
   )}`;
 
   return (
@@ -42,34 +37,34 @@ ${formData.message}`
           <line x1="12" y1="8" x2="12.01" y2="8" />
         </svg>
         <span>
-          <strong>How this form works:</strong> fill it in and click Send Message. We prepare your message, then you choose to send it by email or WhatsApp. You can also write directly to <a href="mailto:support@streamb4.com">support@streamb4.com</a>.
+          <strong>Direct Support Desk:</strong> Submit your details below or email directly to <a href="mailto:support@streamb4.com">support@streamb4.com</a>.
         </span>
       </div>
 
-      {status === "ready" ? (
+      {status === "demo-success" ? (
         <div className="success-state" role="status">
           <div className="success-icon">
             <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
               <polyline points="20 6 9 17 4 12" />
             </svg>
           </div>
-          <h3>Your message is ready to send</h3>
+          <h3>Inquiry Validated</h3>
           <p className="mb-6">
-            Thanks, <strong>{formData.name || "there"}</strong>. Your message has <strong>not been sent yet</strong>. Click one of the buttons below to send it from your email app or WhatsApp, and we will reply there.
+            Thank you, <strong>{formData.name || "Customer"}</strong>. Your ticket draft is ready. To send directly to our priority support inbox right now, click the button below:
           </p>
           <div className="btn-row center mb-6">
             <a href={mailtoLink} className="btn btn-primary btn-sm">
               Send via Email (support@streamb4.com)
             </a>
-            <a href={whatsappLink} target="_blank" rel="noopener noreferrer" className="btn btn-whatsapp btn-sm">
-              Send via WhatsApp
-            </a>
             <button
               type="button"
               className="btn btn-secondary btn-sm"
-              onClick={() => setStatus("idle")}
+              onClick={() => {
+                setStatus("idle");
+                setFormData({ name: "", email: "", subject: "general", deviceType: "firestick", message: "" });
+              }}
             >
-              Edit Message
+              Reset Form
             </button>
           </div>
           <div className="small muted">
@@ -123,7 +118,7 @@ ${formData.message}`
                 <option value="setup">Device Setup & Activation Help</option>
                 <option value="plans">Subscription Tiers & Billing</option>
                 <option value="technical">Streaming Bandwidth / Diagnostic</option>
-                <option value="partnership">Business & Bulk Inquiries</option>
+                <option value="partnership">Authorized Licensing & Enterprise</option>
               </select>
             </div>
 
@@ -163,9 +158,9 @@ ${formData.message}`
           <button
             type="submit"
             className="btn btn-primary btn-lg btn-block"
-            disabled={!formData.email || !formData.message}
+            disabled={status === "submitting" || !formData.email || !formData.message}
           >
-            Send Message
+            {status === "submitting" ? "Validating Parameters..." : "Submit Inquiry (Client Preview)"}
           </button>
         </form>
       )}
