@@ -28,25 +28,34 @@ export const viewport: Viewport = {
 export const metadata: Metadata = {
   metadataBase: new URL("https://iptvprovider-8k.com"),
   title: {
-    default: "IPTVProvider8K | Premium IPTV Service & Provider USA",
+    default: "IPTV Provider USA | 8K & 4K Streaming | IPTVProvider8K",
     template: "%s | IPTVProvider8K"
   },
-  description: "High-performance IPTV streaming in the United States. Reliable 8K UHD and 4K playback, low-latency US server routing, and complete setup guides for Firestick, Smart TVs, and Android.",
+  description: "High-performance IPTV streaming in the United States. Reliable 8K UHD and 4K playback, fast US server routing, and complete setup guides for all devices.",
   alternates: {
     canonical: "https://iptvprovider-8k.com",
   },
   openGraph: {
-    title: "IPTVProvider8K | Premium IPTV Service & Provider USA",
+    title: "IPTV Provider USA | 8K & 4K Streaming | IPTVProvider8K",
     description: "High-performance IPTV streaming in the United States. Fast US server routing, 8K/4K compatibility, and comprehensive setup guides.",
     url: "https://iptvprovider-8k.com",
     siteName: "IPTVProvider8K",
     locale: "en_US",
     type: "website",
+    images: [
+      {
+        url: "/images/og-image.jpg",
+        width: 1200,
+        height: 630,
+        alt: "IPTVProvider8K - High Performance 8K & 4K IPTV Streaming Service",
+      },
+    ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "IPTVProvider8K | Premium IPTV Service & Provider USA",
-    description: "High-performance IPTV streaming in the United States. 8K UHD & 4K compatible streaming service.",
+    title: "IPTV Provider USA | 8K & 4K Streaming | IPTVProvider8K",
+    description: "High-performance IPTV streaming in the United States. Fast US server routing and 8K/4K compatibility.",
+    images: ["/images/og-image.jpg"],
   },
   robots: {
     index: true,

@@ -5,10 +5,16 @@ import PageHero from "@/components/PageHero";
 import ContactForm from "@/components/ContactForm";
 
 export const metadata: Metadata = {
-  title: "Contact Customer Support | IPTV Technical Assistance Desk",
-  description: "Get in touch with IPTVProvider8K technical support via WhatsApp, phone, or email. Fast assistance for device activation, M3U playlist configuration, and troubleshooting.",
+  title: "Contact Customer Support & Technical Help",
+  description: "Contact IPTVProvider8K customer support via WhatsApp, phone, or email for device setup, M3U playlist activation, and streaming assistance.",
   alternates: {
     canonical: "https://iptvprovider-8k.com/contact",
+  },
+  openGraph: {
+    title: "Contact Customer Support & Technical Help | IPTVProvider8K",
+    description: "Contact IPTVProvider8K customer support via WhatsApp, phone, or email for device setup, M3U playlist activation, and streaming assistance.",
+    url: "https://iptvprovider-8k.com/contact",
+    images: ["/images/og-image.jpg"],
   },
 };
 

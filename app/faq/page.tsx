@@ -4,12 +4,19 @@ import type { Metadata } from "next";
 import PageHero from "@/components/PageHero";
 import CtaBand from "@/components/CtaBand";
 import FaqAccordion from "@/components/FaqAccordion";
+import SchemaJsonLd from "@/components/SchemaJsonLd";
 
 export const metadata: Metadata = {
-  title: "Frequently Asked Questions (FAQ) | IPTV Knowledgebase",
+  title: "Frequently Asked Questions (FAQ) & Guide",
   description: "Get honest, verified answers about IPTV technology, legal compliance in the USA, bandwidth requirements for 8K/4K, device setups, and troubleshooting.",
   alternates: {
     canonical: "https://iptvprovider-8k.com/faq",
+  },
+  openGraph: {
+    title: "Frequently Asked Questions (FAQ) & Guide | IPTVProvider8K",
+    description: "Get honest, verified answers about IPTV technology, legal compliance in the USA, bandwidth requirements for 8K/4K, device setups, and troubleshooting.",
+    url: "https://iptvprovider-8k.com/faq",
+    images: ["/images/og-image.jpg"],
   },
 };
 
@@ -86,8 +93,23 @@ export default function FaqPage() {
     }
   ];
 
+  const allFaqs = [...generalFaqs, ...networkFaqs, ...deviceFaqs, ...billingFaqs];
+  const unifiedFaqSchema = {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": allFaqs.map((item) => ({
+      "@type": "Question",
+      "name": item.question,
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": item.answer
+      }
+    }))
+  };
+
   return (
     <>
+      <SchemaJsonLd data={unifiedFaqSchema} />
       <PageHero
         crumbs={[{ label: "Frequently Asked Questions" }]}
         badges={
@@ -119,7 +141,7 @@ export default function FaqPage() {
               </span>
               <h2>General &amp; Technology</h2>
             </div>
-            <FaqAccordion items={generalFaqs} withSchema={true} />
+            <FaqAccordion items={generalFaqs} withSchema={false} />
           </section>
 
           {/* Network & Performance */}
@@ -135,7 +157,7 @@ export default function FaqPage() {
               </span>
               <h2>Bandwidth &amp; Network Performance</h2>
             </div>
-            <FaqAccordion items={networkFaqs} withSchema={true} />
+            <FaqAccordion items={networkFaqs} withSchema={false} />
           </section>
 
           {/* Devices & Players */}
@@ -149,7 +171,7 @@ export default function FaqPage() {
               </span>
               <h2>Devices &amp; Setup Applications</h2>
             </div>
-            <FaqAccordion items={deviceFaqs} withSchema={true} />
+            <FaqAccordion items={deviceFaqs} withSchema={false} />
           </section>
 
           {/* Billing & Plans */}
@@ -163,7 +185,7 @@ export default function FaqPage() {
               </span>
               <h2>Billing, Ordering &amp; Refunds</h2>
             </div>
-            <FaqAccordion items={billingFaqs} withSchema={true} />
+            <FaqAccordion items={billingFaqs} withSchema={false} />
           </section>
         </div>
       </section>

@@ -4,10 +4,16 @@ import type { Metadata } from "next";
 import PageHero from "@/components/PageHero";
 
 export const metadata: Metadata = {
-  title: "Terms of Service | IPTVProvider8K Subscription Conditions",
+  title: "Terms of Service & Subscription Conditions",
   description: "Read the IPTVProvider8K Terms of Service. Service conditions, acceptable use policies, credential security, and intellectual property disclosures.",
   alternates: {
     canonical: "https://iptvprovider-8k.com/terms",
+  },
+  openGraph: {
+    title: "Terms of Service & Subscription Conditions | IPTVProvider8K",
+    description: "Read the IPTVProvider8K Terms of Service. Service conditions, acceptable use policies, credential security, and intellectual property disclosures.",
+    url: "https://iptvprovider-8k.com/terms",
+    images: ["/images/og-image.jpg"],
   },
 };
 

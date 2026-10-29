@@ -9,10 +9,16 @@ import CtaBand from "@/components/CtaBand";
 import PricingSection from "@/components/PricingSection";
 
 export const metadata: Metadata = {
-  title: "IPTV Provider USA | Premium 8K & 4K IPTV Service",
-  description: "Explore IPTVProvider8K, the premier US IPTV service provider. Experience crystal-clear 8K and 4K UHD streaming, fast US servers, and seamless setup on Firestick, Smart TVs, and Android.",
+  title: "IPTV Provider USA | 8K & 4K Streaming | IPTVProvider8K",
+  description: "Explore IPTVProvider8K, a premium US IPTV provider. Stream 8K and 4K UHD channels with fast US servers and easy setup on Firestick, Smart TVs, and Android.",
   alternates: {
-    canonical: "https://iptvprovider-8k.com/",
+    canonical: "https://iptvprovider-8k.com",
+  },
+  openGraph: {
+    title: "IPTV Provider USA | 8K & 4K Streaming | IPTVProvider8K",
+    description: "Explore IPTVProvider8K, a premium US IPTV provider. Stream 8K and 4K UHD channels with fast US servers and easy setup on Firestick, Smart TVs, and Android.",
+    url: "https://iptvprovider-8k.com",
+    images: ["/images/og-image.jpg"],
   },
 };
 
@@ -206,7 +212,7 @@ export default function HomePage() {
             </div>
 
             <h1>
-              Premium <span className="text-gradient">IPTV Service</span> for High-Definition Entertainment
+              Premium <span className="text-gradient">IPTV Provider USA</span> &amp; 8K Streaming
             </h1>
 
             <p className="lead">

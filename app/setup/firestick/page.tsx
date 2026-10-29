@@ -7,10 +7,16 @@ import CtaBand from "@/components/CtaBand";
 import FaqAccordion from "@/components/FaqAccordion";
 
 export const metadata: Metadata = {
-  title: "How to Setup IPTV on Amazon Firestick | Step-by-Step Guide",
-  description: "Learn how to configure IPTV on Amazon Fire TV Stick & Cube. Complete tutorial covering Downloader installation, IPTV Smarters / TiviMate setup, and remote navigation.",
+  title: "How to Setup IPTV on Amazon Firestick",
+  description: "Step-by-step tutorial on setting up IPTV on Amazon Fire TV Stick & Cube using Downloader, IPTV Smarters Pro, or TiviMate in 5 minutes.",
   alternates: {
     canonical: "https://iptvprovider-8k.com/setup/firestick",
+  },
+  openGraph: {
+    title: "How to Setup IPTV on Amazon Firestick | IPTVProvider8K",
+    description: "Step-by-step tutorial on setting up IPTV on Amazon Fire TV Stick & Cube using Downloader, IPTV Smarters Pro, or TiviMate in 5 minutes.",
+    url: "https://iptvprovider-8k.com/setup/firestick",
+    images: ["/images/og-image.jpg"],
   },
 };
 

@@ -5,16 +5,60 @@ import PageHero from "@/components/PageHero";
 import CtaBand from "@/components/CtaBand";
 import FaqAccordion from "@/components/FaqAccordion";
 import PricingSection from "@/components/PricingSection";
+import SchemaJsonLd from "@/components/SchemaJsonLd";
 
 export const metadata: Metadata = {
-  title: "IPTV Subscription Plans USA | 3, 6 & 12 Month Tiers",
+  title: "IPTV Subscription Plans | 3, 6 & 12 Months",
   description: "Explore verified IPTV subscription plans for the United States. 3, 6, and 12-month duration tiers for 1 to 4 accounts. 8K & 4K UHD streaming stability.",
   alternates: {
     canonical: "https://iptvprovider-8k.com/plans",
   },
+  openGraph: {
+    title: "IPTV Subscription Plans | 3, 6 & 12 Months | IPTVProvider8K",
+    description: "Explore verified IPTV subscription plans for the United States. 3, 6, and 12-month duration tiers for 1 to 4 accounts.",
+    url: "https://iptvprovider-8k.com/plans",
+    images: ["/images/og-image.jpg"],
+  },
 };
 
 export default function PlansPage() {
+  const productSchema = {
+    "@context": "https://schema.org",
+    "@type": "Product",
+    "name": "IPTVProvider8K Subscription Plans",
+    "description": "Prepaid 3, 6, and 12-month IPTV subscription plans with 1 to 4 simultaneous connections for Firestick, Smart TVs, and Android devices.",
+    "brand": {
+      "@type": "Brand",
+      "name": "IPTVProvider8K"
+    },
+    "offers": [
+      {
+        "@type": "Offer",
+        "name": "3 Months Plan",
+        "price": "39.99",
+        "priceCurrency": "USD",
+        "availability": "https://schema.org/InStock",
+        "url": "https://iptvprovider-8k.com/plans"
+      },
+      {
+        "@type": "Offer",
+        "name": "6 Months Plan",
+        "price": "59.99",
+        "priceCurrency": "USD",
+        "availability": "https://schema.org/InStock",
+        "url": "https://iptvprovider-8k.com/plans"
+      },
+      {
+        "@type": "Offer",
+        "name": "12 Months Plan",
+        "price": "89.99",
+        "priceCurrency": "USD",
+        "availability": "https://schema.org/InStock",
+        "url": "https://iptvprovider-8k.com/plans"
+      }
+    ]
+  };
+
   const plansFaqs = [
     {
       id: "plan-faq-1",
@@ -40,6 +84,7 @@ export default function PlansPage() {
 
   return (
     <>
+      <SchemaJsonLd data={productSchema} />
       <PageHero
         crumbs={[{ label: "Subscription Plans" }]}
         badges={

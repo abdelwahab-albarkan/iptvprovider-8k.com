@@ -6,10 +6,16 @@ import PageHero from "@/components/PageHero";
 import CtaBand from "@/components/CtaBand";
 
 export const metadata: Metadata = {
-  title: "Supported IPTV Devices & Players | Hardware Compatibility Guide",
-  description: "Check supported streaming hardware for IPTVProvider8K. Compatible with Amazon Fire TV Stick, Samsung & LG Smart TVs, Android TV, Apple TV, PC, and top IPTV players.",
+  title: "Supported IPTV Devices & Hardware Matrix",
+  description: "Check supported streaming devices for IPTVProvider8K. Compatible with Amazon Fire TV Stick, Samsung, LG Smart TVs, Android TV, and top players.",
   alternates: {
     canonical: "https://iptvprovider-8k.com/devices",
+  },
+  openGraph: {
+    title: "Supported IPTV Devices & Hardware Matrix | IPTVProvider8K",
+    description: "Check supported streaming devices for IPTVProvider8K. Compatible with Amazon Fire TV Stick, Samsung, LG Smart TVs, Android TV, and top players.",
+    url: "https://iptvprovider-8k.com/devices",
+    images: ["/images/og-image.jpg"],
   },
 };
 

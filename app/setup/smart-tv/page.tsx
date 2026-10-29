@@ -7,10 +7,16 @@ import CtaBand from "@/components/CtaBand";
 import FaqAccordion from "@/components/FaqAccordion";
 
 export const metadata: Metadata = {
-  title: "How to Setup IPTV on Smart TVs (Samsung & LG) | Complete Guide",
+  title: "Setup IPTV on Smart TVs (Samsung & LG)",
   description: "Step-by-step tutorial on installing IPTV on Samsung Tizen and LG webOS Smart TVs. Learn how to configure IPTV Smarters Pro and optimize 4K playback.",
   alternates: {
     canonical: "https://iptvprovider-8k.com/setup/smart-tv",
+  },
+  openGraph: {
+    title: "Setup IPTV on Smart TVs (Samsung & LG) | IPTVProvider8K",
+    description: "Step-by-step tutorial on installing IPTV on Samsung Tizen and LG webOS Smart TVs. Learn how to configure IPTV Smarters Pro and optimize 4K playback.",
+    url: "https://iptvprovider-8k.com/setup/smart-tv",
+    images: ["/images/og-image.jpg"],
   },
 };
 

@@ -4,10 +4,16 @@ import type { Metadata } from "next";
 import PageHero from "@/components/PageHero";
 
 export const metadata: Metadata = {
-  title: "Refund Policy | IPTVProvider8K Transparent Cancellation Terms",
+  title: "Refund & Cancellation Policy",
   description: "Review our clear, honest refund and cancellation terms. Learn about our evaluation period, technical support troubleshooting, and return procedures.",
   alternates: {
     canonical: "https://iptvprovider-8k.com/refund-policy",
+  },
+  openGraph: {
+    title: "Refund & Cancellation Policy | IPTVProvider8K",
+    description: "Review our clear, honest refund and cancellation terms. Learn about our evaluation period, technical support troubleshooting, and return procedures.",
+    url: "https://iptvprovider-8k.com/refund-policy",
+    images: ["/images/og-image.jpg"],
   },
 };
 

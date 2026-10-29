@@ -4,10 +4,16 @@ import type { Metadata } from "next";
 import PageHero from "@/components/PageHero";
 
 export const metadata: Metadata = {
-  title: "Privacy Policy | IPTVProvider8K Data Protection Disclosures",
+  title: "Privacy Policy & Data Protection",
   description: "Read the IPTVProvider8K Privacy Policy. Learn how we handle customer data, zero viewing log policies, cookies, and your US privacy rights.",
   alternates: {
     canonical: "https://iptvprovider-8k.com/privacy-policy",
+  },
+  openGraph: {
+    title: "Privacy Policy & Data Protection | IPTVProvider8K",
+    description: "Read the IPTVProvider8K Privacy Policy. Learn how we handle customer data, zero viewing log policies, cookies, and your US privacy rights.",
+    url: "https://iptvprovider-8k.com/privacy-policy",
+    images: ["/images/og-image.jpg"],
   },
 };
 

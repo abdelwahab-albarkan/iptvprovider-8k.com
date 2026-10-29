@@ -7,10 +7,16 @@ import CtaBand from "@/components/CtaBand";
 import FaqAccordion from "@/components/FaqAccordion";
 
 export const metadata: Metadata = {
-  title: "IPTV USA | High-Speed US IPTV Service & Streaming Network",
-  description: "Discover dedicated IPTV service in the USA with IPTVProvider8K. Low-latency US edge nodes, ISP-neutral routing, 8K/4K UHD stability, and local US timezone sports and TV support.",
+  title: "IPTV USA Streaming | US Server Network",
+  description: "Stream IPTV in the USA with low-latency US edge nodes, ISP-neutral routing, local US timezone EPG, and buffer-free 8K and 4K UHD playback.",
   alternates: {
     canonical: "https://iptvprovider-8k.com/iptv-usa",
+  },
+  openGraph: {
+    title: "IPTV USA Streaming | US Server Network | IPTVProvider8K",
+    description: "Stream IPTV in the USA with low-latency US edge nodes, ISP-neutral routing, local US timezone EPG, and buffer-free 8K and 4K UHD playback.",
+    url: "https://iptvprovider-8k.com/iptv-usa",
+    images: ["/images/og-image.jpg"],
   },
 };
 

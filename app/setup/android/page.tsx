@@ -7,10 +7,16 @@ import CtaBand from "@/components/CtaBand";
 import FaqAccordion from "@/components/FaqAccordion";
 
 export const metadata: Metadata = {
-  title: "How to Setup IPTV on Android TV & Shield | Step-by-Step Guide",
+  title: "Setup IPTV on Android TV & NVIDIA Shield",
   description: "Learn how to configure IPTV on Android TV, NVIDIA Shield, and Google TV devices. Instructions for TiviMate, IPTV Smarters, and XCIPTV installation.",
   alternates: {
     canonical: "https://iptvprovider-8k.com/setup/android",
+  },
+  openGraph: {
+    title: "Setup IPTV on Android TV & NVIDIA Shield | IPTVProvider8K",
+    description: "Learn how to configure IPTV on Android TV, NVIDIA Shield, and Google TV devices. Instructions for TiviMate, IPTV Smarters, and XCIPTV installation.",
+    url: "https://iptvprovider-8k.com/setup/android",
+    images: ["/images/og-image.jpg"],
   },
 };
 
