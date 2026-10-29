@@ -2220,7 +2220,8 @@ code {
   color: var(--ink-500);
 }
 
-.price-card h2 {
+.price-card h2,
+.price-card .plan-name {
   font-size: var(--fs-2xl);
   margin-bottom: var(--space-1);
 }
@@ -2979,4 +2980,54 @@ code {
 
 .site-header {
   top: calc(-1 * var(--topbar-h, 0px));
+}
+
+/* ---------- Floating WhatsApp button ---------- */
+.wa-float {
+  position: fixed;
+  right: max(1rem, env(safe-area-inset-right));
+  bottom: max(1rem, env(safe-area-inset-bottom));
+  z-index: 50;
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  min-height: 56px;
+  padding: 0.75rem 1.1rem 0.75rem 0.85rem;
+  font-weight: 700;
+  color: var(--whatsapp-ink);
+  background: var(--whatsapp);
+  border-radius: var(--radius-full);
+  box-shadow: 0 12px 28px -8px rgba(37, 211, 102, 0.6), var(--shadow-md);
+  transition: transform 0.25s var(--ease), background 0.2s ease;
+}
+
+.wa-float:hover {
+  color: var(--whatsapp-ink);
+  background: var(--whatsapp-hover);
+  transform: translateY(-2px);
+}
+
+@media (max-width: 639px) {
+  .wa-float {
+    width: 56px;
+    padding: 0;
+    justify-content: center;
+  }
+  .wa-float-label {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip: rect(0 0 0 0);
+    white-space: nowrap;
+  }
+}
+
+/* Contact cards next to the home pricing */
+.contact-strip {
+  margin-top: var(--space-12);
+}
+
+.contact-strip .contact-card .btn {
+  word-break: break-word;
 }

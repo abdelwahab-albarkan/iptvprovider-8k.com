@@ -81,7 +81,15 @@ export const ALL_PLANS: PlanDuration[] = [
   }
 ];
 
-export default function PricingSection() {
+interface PricingSectionProps {
+  /** Heading level for plan names (h3 when the section already has an h2) */
+  planHeading?: "h2" | "h3";
+  /** Show the full 12-price schedule table under the cards */
+  showSchedule?: boolean;
+}
+
+export default function PricingSection({ planHeading = "h2", showSchedule = true }: PricingSectionProps) {
+  const PlanHeading = planHeading;
   const [selectedAccountCount, setSelectedAccountCount] = useState<number>(1);
 
   const scheduleRows = [
@@ -136,7 +144,7 @@ export default function PricingSection() {
                 <span className="prepaid">Prepaid</span>
               </div>
 
-              <h2>{plan.duration}</h2>
+              <PlanHeading className="plan-name">{plan.duration}</PlanHeading>
               <div className="tier-note">
                 {currentTier.label} ({currentTier.count} {currentTier.count === 1 ? "Stream" : "Simultaneous Streams"})
               </div>
@@ -185,6 +193,7 @@ export default function PricingSection() {
       </div>
 
       {/* Complete 12-Plan Overview Table */}
+      {showSchedule && (
       <div className="card schedule-card">
         <div className="schedule-head">
           <span className="section-tag">Complete Price Schedule</span>
@@ -221,6 +230,7 @@ export default function PricingSection() {
           </table>
         </div>
       </div>
+      )}
     </div>
   );
 }
