@@ -1,7 +1,6 @@
 "use client";
 
 import React, { useState } from "react";
-import Link from "next/link";
 
 export interface AccountTier {
   count: number;
@@ -80,6 +79,15 @@ export const ALL_PLANS: PlanDuration[] = [
     ]
   }
 ];
+
+const WHATSAPP_NUMBER = "212625218443";
+
+// Opens WhatsApp with the exact plan the visitor picked already written out
+function whatsappOrderUrl(duration: string, tier: AccountTier) {
+  const accounts = `${tier.count} ${tier.count === 1 ? "account" : "accounts"}`;
+  const message = `Hello IPTVProvider8K! I want to buy the ${duration} plan – ${accounts} – ${tier.price} USD. Please send me the payment details.`;
+  return `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(message)}`;
+}
 
 interface PricingSectionProps {
   /** Heading level for plan names (h3 when the section already has an h2) */
@@ -181,12 +189,17 @@ export default function PricingSection({ planHeading = "h2", showSchedule = true
               </ul>
 
               {/* Card Action Button */}
-              <Link
-                href={`/contact?plan=${plan.durationSlug}&accounts=${currentTier.count}&price=${encodeURIComponent(currentTier.price)}`}
+              <a
+                href={whatsappOrderUrl(plan.duration, currentTier)}
+                target="_blank"
+                rel="noopener noreferrer"
                 className={`btn btn-block ${plan.popular ? "btn-primary btn-lg" : "btn-secondary btn-lg"}`}
               >
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                  <path d="M12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893A11.821 11.821 0 0 0 12.05 0zm5.422 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51l-.57-.01c-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z" />
+                </svg>
                 Order {plan.duration} ({currentTier.label} - {currentTier.price})
-              </Link>
+              </a>
             </div>
           );
         })}
